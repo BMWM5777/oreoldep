@@ -1,6 +1,6 @@
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
-import environ
+import environ, os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -50,9 +50,8 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True  # Или CORS_ALLOWED_ORIGINS = ["http://localhost:PORT"]
+CORS_ALLOW_ALL_ORIGINS = True
 
-# Разрешите необходимые методы и заголовки
 CORS_ALLOW_METHODS = ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE']
 CORS_ALLOW_HEADERS = [
     'accept',
@@ -108,11 +107,7 @@ STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY')
 STRIPE_API_VERSION = env('STRIPE_API_VERSION')
 STRIPE_WEBHOOK_SECRET = env('STRIPE_WEBHOOK_SECRET')
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
-
-# Password validation
-# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -149,13 +144,16 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-CSRF_COOKIE_HTTPONLY = False
-CSRF_USE_SESSIONS = False
+CSRF_COOKIE_HTTPONLY = True
+CSRF_USE_SESSIONS = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+
+
 CART_SESSION_ID = 'cart'
 AUTH_USER_MODEL = 'users.User'
 
@@ -169,18 +167,7 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
-
-if DEBUG:
-    SECURE_SSL_REDIRECT = False
-    SESSION_COOKIE_SECURE = False
-    CSRF_COOKIE_SECURE = False
-    SECURE_HSTS_SECONDS = 0
-    SECURE_HSTS_PRELOAD = False
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = False
-else:
-    SECURE_SSL_REDIRECT = True
-    SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_SECURE = True
-    SECURE_HSTS_SECONDS = 31536000
-    SECURE_HSTS_PRELOAD = True
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True

@@ -1,6 +1,8 @@
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 import environ, os
+from dotenv import load_dotenv
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -93,14 +95,16 @@ environ.Env.read_env()
 
 DATABASES = {
     'default': {
-        'ENGINE': env('DB_ENGINE'),
-        'NAME': env('DB_NAME'),
-        'USER': env('DB_USER'),
-        'PASSWORD': env('DB_PASSWORD'),
-        'HOST': env('DB_HOST'),
-        'PORT': env('DB_PORT'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'HOST': os.getenv('POSTGRES_HOST', 'localhost'),
+        'PORT': os.getenv('POSTGRES_PORT', 5432),
+        'USER': os.getenv('POSTGRES_USER', 'postgres'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+        'NAME': os.getenv('POSTGRES_DB', 'db01'),
+        'ATOMIC_REQUESTS': True,
     }
 }
+
 
 STRIPE_PUBLISHABLE_KEY = env('STRIPE_PUBLISHABLE_KEY')
 STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY')

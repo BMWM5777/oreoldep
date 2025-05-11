@@ -21,8 +21,6 @@ urlpatterns += i18n_patterns(
     path('auction/', include('auction.urls', namespace='auction')),
     path('favorites/', include('favorites.urls', namespace='favorites')),
     path('chatbot/', include(('chatbot.urls', 'chatbot'), namespace='chatbot')),
-    path('api/', include(('api.urls','api'), namespace='api')),
-
 )
 
 if settings.DEBUG:

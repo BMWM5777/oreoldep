@@ -1,0 +1,40 @@
+/* Контейнер для страницы авторизации */
+.auth-required-container {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Заголовок страницы */
+.auth-required-container h2 {
+    font-size: 2rem;
+    color: #6200ea;
+    margin-bottom: 20px;
+}
+
+/* Текст сообщения */
+.auth-required-container p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Стиль кнопки входа */
+.auth-btn {
+    background-color: #6200ea;
+    color: #fff;
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.auth-btn:hover {
+    background-color: #4500a8;
+}

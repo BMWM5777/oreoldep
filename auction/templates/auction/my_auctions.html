@@ -1,0 +1,78 @@
+{% extends "main/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Мои лоты" %}{% endblock title %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/auction_list.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+<div class="auction-list-container">
+    <h2 class="auction-list-title">{% trans "Мои лоты" %}</h2>
+    
+    {% if auctions %}
+        <div class="auction-cards-row">
+            {% for auction in auctions %}
+                <div class="auction-card">
+                    {% if auction.image %}
+                        <img src="{{ auction.image.url }}" class="auction-card-img" alt="{{ auction.title }}">
+                    {% else %}
+                        <img src="/static/img/noimage.jpg" class="auction-card-img" alt="Нет изображения">
+                    {% endif %}
+
+                    <div class="auction-card-body">
+                        <h5 class="auction-card-title">{{ auction.title }}</h5>
+                        <p class="auction-card-status">
+                            {% trans "Статус:" %} <strong>{{ auction.get_status_display }}</strong>
+                        </p>
+                        <p class="auction-card-price">
+                            {% trans "Текущая цена:" %} <span>{{ auction.current_price|floatformat:2 }}</span> тенге
+                        </p>
+                        
+                        <div class="auction-card-buttons">
+                            {% with formatted_end_time=auction.end_time|date:"d.m.Y H:i" %}
+                                <button class="auction-card-button"
+                                    onclick="openModal(
+                                    '{{ auction.id }}',
+                                    '{{ auction.title|escapejs }}',
+                                    '{% if auction.image %}{{ auction.image.url }}{% else %}/static/img/noimage.jpg{% endif %}',
+                                    '{{ auction.get_status_display }}',
+                                    '{{ auction.current_price|floatformat:2 }}',
+                                    '{{ auction.description|escapejs }}',
+                                    '{% if auction.end_time %}{{ formatted_end_time }}{% else %}Не указано{% endif %}',
+                                    '{{ auction.admin_comment|default:""|escapejs }}'
+                                    )">
+                                    {% trans "Подробнее" %}
+                                </button>
+                            {% endwith %}
+
+                            {% if auction.status == 'change_requested' %}
+                            <a href="{% url 'auction:edit' auction.id %}" class="auction-card-button auction-edit-button admin-dashboard-btn-warning">
+                                {% trans "Внести изменения" %}
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="auction-list-empty">{% trans "У вас пока нет созданных лотов." %}</p>
+    {% endif %}
+</div>
+
+<div class="modal fade" id="auctionModal" tabindex="-1" role="dialog" aria-labelledby="auctionModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content" id="auction-modal-content">
+    </div>
+  </div>
+</div>
+{% endblock content %}
+
+{% block extra_js %}
+<script src="{% static 'bootstrap/js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/my_auctions.js' %}"></script>
+{% endblock extra_js %}

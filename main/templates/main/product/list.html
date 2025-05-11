@@ -1,0 +1,133 @@
+{% extends 'main/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Магазин" %}{% endblock title %}
+
+{% block content %}
+<div class="mobile-controls">
+    <button class="category-burger">☰ Категории</button>
+</div>
+<div class="llist d-flex">
+    <div class="sidebar">
+        <h3>{% trans "Категории" %}</h3>
+        <ul>
+            <li {% if not category %}class="selected"{% endif %}>
+                <a href="{% url "main:product_list" %}">{% trans "Все" %}</a>
+            </li>
+            {% for c in categories %}
+                <li {% if category.slug == c.slug %}class="selected"{% endif %}>
+                    <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+    <div class="main">
+        <div class="main-title">
+            {% if category %}{{ category.name }}{% else %}{% trans "Продукты" %}{% endif %}
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="{% trans "🔍 Искать товар..." %}" autocomplete="off">
+            <ul id="search-results" class="hidden"></ul>
+            <div id="search-results-container" class="hidden"></div>
+
+            <div class="sort-container">
+                <button id="sort-button">{% trans "Сортировать" %} ▼</button>
+                <ul id="sort-options" class="sort-list hidden">
+                    <li data-sort="">{% trans "Без сортировки" %}</li>
+                    <li data-sort="price_desc">{% trans "По убыванию цены" %}</li>
+                    <li data-sort="price_asc">{% trans "По возрастанию цены" %}</li>
+                    <li data-sort="newest">{% trans "По свежести (новые)" %}</li>
+                    <li data-sort="oldest">{% trans "По свежести (старые)" %}</li>
+                </ul>
+            </div>   
+        </div>
+                           
+        <div class="product-list">
+            <div class="items">
+                {% for product in products %}
+                    <div class="item">
+                        <a href="{{ product.get_absolute_url }}" class="home-card d-flex flex-column align-items-center text-center">
+                            {% if product.discount %}
+                                <div class="ribbon">
+                                    -{{ product.discount }}%
+                                </div>
+                            {% endif %}
+                            <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/noimage.jpg' %}{% endif %}" class="card-img" alt="">
+                            <h5 class="title-card">{{ product.name }}</h5>
+                            <div class="card-rating mb-1">
+                                {% if product.reviews_count %}
+                                  {% for _ in product.full_stars %}
+                                    <i class="fas fa-star"></i>
+                                  {% endfor %}
+                                  {% for _ in product.empty_stars %}
+                                    <i class="far fa-star"></i>
+                                  {% endfor %}
+                                  <span class="rating-number">{{ product.avg_rating|floatformat:1 }}  / 5 </span>
+                                {% else %}
+                                  <span class="no-rating">{% trans "Нет рейтинга" %}</span>
+                                {% endif %}
+                              </div>                              
+                            {% if product.discount %}
+                                <div class="cart-discount d-flex gap-2">
+                                    <p class="line">{{ product.price }} KZT</p>
+                                    <p class="price pt-2">{{ product.sell_price }} KZT</p>
+                                </div>
+                            {% else %}
+                                <p class="price">{{ product.price }} KZT</p>
+                            {% endif %}
+                        </a>
+                        {% if user.is_authenticated and product.id %}
+                        <form action="{% url 'favorites:add_to_favorites' product.id %}" method="post" class="card-fav-form">
+                            {% csrf_token %}
+                            <button type="submit" class="card-fav-button">
+                                {% if product.id in favorite_product_ids %}
+                                    <i class="fa fa-star fav-active"></i>
+                                {% else %}
+                                    <i class="fa fa-star"></i>
+                                {% endif %}
+                            </button>
+                        </form>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <ul class="pagination">
+            <li class="{% if not products.has_previous %}disabled{% endif %}">
+                <a href="{% if products.has_previous %}?page={{ products.previous_page_number }}&sort={{ current_sort }}{% endif %}">
+                    {% trans "Назад" %}
+                </a>
+            </li>
+            
+            {% for page in products.paginator.page_range %}
+                {% if page >= products.number|add:-2 and page <= products.number|add:2 %}
+                    <li>
+                        <a href="?page={{ page }}&sort={{ current_sort }}" class="{% if products.number == page %}disabled{% endif %}">
+                            {{ page }}
+                        </a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+            
+            <li class="{% if not products.has_next %}disabled{% endif %}">
+                <a href="{% if products.has_next %}?page={{ products.next_page_number }}&sort={{ current_sort }}{% endif %}">
+                    {% trans "Вперёд" %}
+                </a>
+            </li>
+        </ul>
+        
+    </div>
+    <div class="mainvl"></div>
+</div>
+{% endblock content %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/shop.css' %}">
+{% endblock extra_css %}
+{% block extra_js %}
+    <script src="{% static 'js/shop.js' %}"></script>
+    <script src="{% static 'js/search.js' %}" defer></script>
+{% endblock extra_js %}

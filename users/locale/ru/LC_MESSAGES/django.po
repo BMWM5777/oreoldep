@@ -1,0 +1,433 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-16 14:42+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\users\templates\users\car_data.html:5
+msgid "Данные об авто"
+msgstr ""
+
+#: .\users\templates\users\car_data.html:12
+msgid "Данные об автомобиле"
+msgstr ""
+
+#: .\users\templates\users\car_data.html:13
+msgid "Укажите или отредактируйте информацию о своём автомобиле."
+msgstr ""
+
+#: .\users\templates\users\car_data.html:22
+msgid "Марка авто"
+msgstr ""
+
+#: .\users\templates\users\car_data.html:28
+msgid "Например, BMW"
+msgstr ""
+
+#: .\users\templates\users\car_data.html:34
+msgid "Год авто"
+msgstr ""
+
+#: .\users\templates\users\car_data.html:40
+msgid "Например, 2020"
+msgstr ""
+
+#: .\users\templates\users\car_data.html:46
+msgid "Гос. номер авто"
+msgstr ""
+
+#: .\users\templates\users\car_data.html:52
+msgid "Например, 755KEA04"
+msgstr ""
+
+#: .\users\templates\users\car_data.html:58
+msgid "VIN код авто"
+msgstr ""
+
+#: .\users\templates\users\car_data.html:64
+msgid "Введите VIN код"
+msgstr ""
+
+#: .\users\templates\users\car_data.html:71
+#: .\users\templates\users\profile.html:68
+msgid "Сохранить"
+msgstr ""
+
+#: .\users\templates\users\car_data.html:74
+msgid "Назад"
+msgstr ""
+
+#: .\users\templates\users\login.html:5
+msgid "Вход"
+msgstr ""
+
+#: .\users\templates\users\login.html:13
+msgid "Добро пожаловать в СТО Ореол"
+msgstr ""
+
+#: .\users\templates\users\login.html:14
+msgid "Профессиональный сервис для вашего автомобиля"
+msgstr ""
+
+#: .\users\templates\users\login.html:21
+msgid "Вход в систему"
+msgstr ""
+
+#: .\users\templates\users\login.html:51
+#: .\users\templates\users\profile.html:31
+#: .\users\templates\users\registration.html:92
+msgid "Имя пользователя"
+msgstr ""
+
+#: .\users\templates\users\login.html:57
+msgid "Введите имя пользователя"
+msgstr ""
+
+#: .\users\templates\users\login.html:73
+#: .\users\templates\users\registration.html:134
+msgid "Пароль"
+msgstr ""
+
+#: .\users\templates\users\login.html:80
+msgid "Введите пароль"
+msgstr ""
+
+#: .\users\templates\users\login.html:97
+#: .\users\templates\users\registration.html:191
+msgid "Войти в систему"
+msgstr ""
+
+#: .\users\templates\users\login.html:103
+msgid "Восстановить пароль"
+msgstr ""
+
+#: .\users\templates\users\login.html:108
+#: .\users\templates\users\registration.html:5
+msgid "Регистрация"
+msgstr ""
+
+#: .\users\templates\users\orders_history.html:5
+#: .\users\templates\users\orders_history.html:12
+msgid "История заказов"
+msgstr ""
+
+#: .\users\templates\users\orders_history.html:13
+msgid "Просмотрите все свои оформленные заказы."
+msgstr ""
+
+#: .\users\templates\users\orders_history.html:21
+#: .\users\templates\users\profile.html:82
+msgid "Заказ"
+msgstr ""
+
+#: .\users\templates\users\orders_history.html:23
+msgid "Статус:"
+msgstr ""
+
+#: .\users\templates\users\orders_history.html:28
+#: .\users\templates\users\profile.html:95
+msgid "Дата создания заказа"
+msgstr ""
+
+#: .\users\templates\users\orders_history.html:29
+msgid "Общая стоимость"
+msgstr ""
+
+#: .\users\templates\users\orders_history.html:31
+msgid "Состав заказа"
+msgstr ""
+
+#: .\users\templates\users\orders_history.html:36
+msgid "Название:"
+msgstr ""
+
+#: .\users\templates\users\orders_history.html:41
+msgid "Количество:"
+msgstr ""
+
+#: .\users\templates\users\orders_history.html:42
+msgid "Цена за единицу:"
+msgstr ""
+
+#: .\users\templates\users\orders_history.html:50
+msgid "У вас ещё нет оформленных заказов."
+msgstr ""
+
+#: .\users\templates\users\password_reset.html:5
+#: .\users\templates\users\password_reset.html:21
+msgid "Сброс пароля"
+msgstr ""
+
+#: .\users\templates\users\password_reset.html:13
+msgid "Восстановление доступа"
+msgstr ""
+
+#: .\users\templates\users\password_reset.html:14
+msgid "Мы поможем вернуть доступ к вашему аккаунту"
+msgstr ""
+
+#: .\users\templates\users\password_reset.html:22
+msgid ""
+"Введите ваш адрес электронной почты, и мы отправим вам инструкции для сброса "
+"пароля."
+msgstr ""
+
+#: .\users\templates\users\password_reset.html:31
+#: .\users\templates\users\registration.html:113
+msgid "Электронная почта"
+msgstr ""
+
+#: .\users\templates\users\password_reset.html:37
+#: .\users\templates\users\registration.html:119
+msgid "oreol.kz@mail.ru"
+msgstr ""
+
+#: .\users\templates\users\password_reset.html:44
+msgid "Отправить инструкции"
+msgstr ""
+
+#: .\users\templates\users\password_reset_complete.html:5
+#: .\users\templates\users\password_reset_complete.html:22
+msgid "Пароль изменён"
+msgstr ""
+
+#: .\users\templates\users\password_reset_complete.html:13
+msgid "Успешное обновление"
+msgstr ""
+
+#: .\users\templates\users\password_reset_complete.html:14
+msgid "Ваш аккаунт теперь защищен"
+msgstr ""
+
+#: .\users\templates\users\password_reset_complete.html:24
+msgid "Ваш пароль успешно изменён. Теперь вы можете"
+msgstr ""
+
+#: .\users\templates\users\password_reset_complete.html:26
+msgid "войти"
+msgstr ""
+
+#: .\users\templates\users\password_reset_confirm.html:5
+#: .\users\templates\users\password_reset_confirm.html:21
+msgid "Установите новый пароль"
+msgstr ""
+
+#: .\users\templates\users\password_reset_confirm.html:13
+msgid "Новый уровень безопасности"
+msgstr ""
+
+#: .\users\templates\users\password_reset_confirm.html:14
+msgid "Защитите свой аккаунт надежным паролем"
+msgstr ""
+
+#: .\users\templates\users\password_reset_confirm.html:30
+msgid "Новый пароль"
+msgstr ""
+
+#: .\users\templates\users\password_reset_confirm.html:37
+#: .\users\templates\users\registration.html:141
+msgid "Не менее 8 символов"
+msgstr ""
+
+#: .\users\templates\users\password_reset_confirm.html:48
+#: .\users\templates\users\registration.html:159
+msgid "Подтвердите пароль"
+msgstr ""
+
+#: .\users\templates\users\password_reset_confirm.html:55
+msgid "Повторите новый пароль"
+msgstr ""
+
+#: .\users\templates\users\password_reset_confirm.html:65
+msgid "Сохранить пароль"
+msgstr ""
+
+#: .\users\templates\users\password_reset_done.html:5
+#: .\users\templates\users\password_reset_done.html:22
+msgid "Инструкция отправлена"
+msgstr ""
+
+#: .\users\templates\users\password_reset_done.html:13
+msgid "Проверьте почту"
+msgstr ""
+
+#: .\users\templates\users\password_reset_done.html:14
+msgid "Важные инструкции уже в пути"
+msgstr ""
+
+#: .\users\templates\users\password_reset_done.html:24
+msgid ""
+"Если учетная запись с указанным email существует, вы получите письмо с "
+"дальнейшими инструкциями по сбросу пароля."
+msgstr ""
+
+#: .\users\templates\users\password_reset_email.html:2
+#, python-format
+msgid ""
+"Вы получили это письмо, так как запрошен сброс пароля для вашей учетной "
+"записи на %(site_name)s."
+msgstr ""
+
+#: .\users\templates\users\password_reset_email.html:4
+msgid "Перейдите по следующей ссылке и выберите новый пароль:"
+msgstr ""
+
+#: .\users\templates\users\password_reset_email.html:9
+msgid "Ваше имя пользователя:"
+msgstr ""
+
+#: .\users\templates\users\password_reset_email.html:11
+msgid "Спасибо за использование нашего сайта!"
+msgstr ""
+
+#: .\users\templates\users\password_reset_email.html:13
+#, python-format
+msgid "Команда %(site_name)s"
+msgstr ""
+
+#: .\users\templates\users\profile.html:4
+#: .\users\templates\users\profile.html:12
+msgid "Профиль"
+msgstr ""
+
+#: .\users\templates\users\profile.html:23
+msgid "Выбрать фото"
+msgstr ""
+
+#: .\users\templates\users\profile.html:33
+msgid "Ваше имя пользователя"
+msgstr ""
+
+#: .\users\templates\users\profile.html:37
+msgid "Почта"
+msgstr ""
+
+#: .\users\templates\users\profile.html:39
+msgid "Ваша почта"
+msgstr ""
+
+#: .\users\templates\users\profile.html:45
+#: .\users\templates\users\registration.html:49
+msgid "Имя"
+msgstr ""
+
+#: .\users\templates\users\profile.html:47
+msgid "Ваше имя"
+msgstr ""
+
+#: .\users\templates\users\profile.html:51
+#: .\users\templates\users\registration.html:71
+msgid "Фамилия"
+msgstr ""
+
+#: .\users\templates\users\profile.html:53
+msgid "Ваша фамилия"
+msgstr ""
+
+#: .\users\templates\users\profile.html:59
+msgid "Телефон"
+msgstr ""
+
+#: .\users\templates\users\profile.html:61
+msgid "Ваш номер телефона"
+msgstr ""
+
+#: .\users\templates\users\profile.html:69
+msgid "Выйти"
+msgstr ""
+
+#: .\users\templates\users\profile.html:76
+msgid "Истории заказов"
+msgstr ""
+
+#: .\users\templates\users\profile.html:87
+msgid "Наименование"
+msgstr ""
+
+#: .\users\templates\users\profile.html:92
+msgid "Количество"
+msgstr ""
+
+#: .\users\templates\users\profile.html:93
+msgid "Цена"
+msgstr ""
+
+#: .\users\templates\users\profile.html:103
+msgid "У вас ещё нет заказов."
+msgstr ""
+
+#: .\users\templates\users\profile.html:108
+msgid "Записи на услуги"
+msgstr ""
+
+#: .\users\templates\users\profile.html:114
+msgid "Запись"
+msgstr ""
+
+#: .\users\templates\users\profile.html:118
+msgid "Услуга"
+msgstr ""
+
+#: .\users\templates\users\profile.html:119
+msgid "Дата записи"
+msgstr ""
+
+#: .\users\templates\users\profile.html:120
+msgid "Статус"
+msgstr ""
+
+#: .\users\templates\users\profile.html:127
+msgid "У вас ещё нет записей на услуги."
+msgstr ""
+
+#: .\users\templates\users\registration.html:13
+msgid "Присоединяйтесь к нашему сервису"
+msgstr ""
+
+#: .\users\templates\users\registration.html:14
+msgid "Станьте частью профессионального автомобильного сообщества"
+msgstr ""
+
+#: .\users\templates\users\registration.html:21
+msgid "Создание аккаунта"
+msgstr ""
+
+#: .\users\templates\users\registration.html:55
+msgid "Введите ваше имя"
+msgstr ""
+
+#: .\users\templates\users\registration.html:77
+msgid "Введите вашу фамилию"
+msgstr ""
+
+#: .\users\templates\users\registration.html:98
+msgid "Придумайте логин"
+msgstr ""
+
+#: .\users\templates\users\registration.html:166
+msgid "Повторите ваш пароль"
+msgstr ""
+
+#: .\users\templates\users\registration.html:184
+msgid "Зарегистрироваться"
+msgstr ""
+
+#: .\users\templates\users\registration.html:188
+msgid "Уже есть аккаунт?"
+msgstr ""

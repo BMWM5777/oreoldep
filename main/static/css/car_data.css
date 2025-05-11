@@ -1,0 +1,135 @@
+.car-data-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    color: #333;
+}
+
+.car-data-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    width: 100%;
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.car-data-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.car-data-header h1 {
+    font-size: 1.8rem;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+}
+
+.car-data-header p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.car-data-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.car-data-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.car-data-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.car-data-label {
+    font-weight: 500;
+    color: #4a4a4a;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+}
+
+.car-data-input {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.car-data-input:focus {
+    border-color: #6200ea;
+    box-shadow: 0 0 0 3px rgba(98, 0, 234, 0.1);
+}
+
+.car-data-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.car-data-btn {
+    min-width: 100px;
+    padding: 0.7rem 1rem;
+    background: #6200ea;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+}
+
+.car-data-btn:hover {
+    background: #4500a8;
+    transform: translateY(-2px);
+}
+
+.save-btn {
+    background-color: #6200ea;
+}
+
+.cancel-btn {
+    background-color: #888;
+}
+
+.cancel-btn:hover {
+    background-color: #555;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .car-data-container {
+        padding: 1rem;
+        margin: 1rem;
+    }
+    .car-data-fields {
+        grid-template-columns: 1fr;
+    }
+    .car-data-header h1 {
+        font-size: 1.5rem;
+    }
+}

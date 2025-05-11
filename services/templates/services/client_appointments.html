@@ -1,0 +1,119 @@
+{% extends 'main/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Мои записи на услуги" %}{% endblock title %}
+
+{% block content %}
+<section class="appointments-section">
+    <div class="appointments-container">
+        <div class="appointments-header">
+            <h2>{% trans "Мои записи на услуги" %}</h2>
+            
+            <form method="get" class="filter-form mb-4">
+                <div class="row g-3 align-items-end">
+                    <div class="col-md-3">
+                        <label class="form-label">{% trans "Статус" %}</label>
+                        <select name="status" class="form-select">
+                            <option value="">{% trans "Все статусы" %}</option>
+                            {% for value, label in status_choices %}
+                                <option value="{{ value }}" 
+                                    {% if value == request.GET.status %}selected{% endif %}>
+                                    {{ label }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="form-label">{% trans "Дата" %}</label>
+                        <input type="date" name="date" class="form-control" 
+                            value="{{ request.GET.date }}">
+                    </div>
+
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-funnel"></i> {% trans "Фильтровать" %}
+                        </button>
+                        <a href="{% url 'services:client_appointments' %}" 
+                            class="btn btn-outline-secondary">
+                            {% trans "Сбросить" %}
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        {% if appointments %}
+            <div class="mb-3">
+                {% include 'services/includes/pagination.html' with page_obj=appointments %}
+            </div>
+
+            <div class="appointments-list">
+                {% for appointment in appointments %}
+                    <div class="appointment-card">
+                        <div class="appointment-card-header">
+                            <h4 class="appointment-service-name">{{ appointment.service.name }}</h4>
+                        </div>
+                        <div class="appointment-card-body">
+                            <p>
+                                <strong>{% trans "Дата и время:" %}</strong> {{ appointment.date_time }}<br>
+                                <strong>{% trans "Статус записи:" %}</strong> {{ appointment.get_status_display }}<br>
+                                <strong>{% trans "Мастер:" %}</strong> {{ appointment.service.master.get_full_name }}<br>
+                                <strong>{% trans "Цена:" %}</strong> {{ appointment.service.price }}<br>
+                                {% if appointment.car_brand %}
+                                    <strong>{% trans "Авто:" %}</strong> 
+                                    {{ appointment.car_brand }}, {{ appointment.car_year }}, {{ appointment.car_number }}
+                                {% endif %}
+                            </p>
+
+                            {% if appointment.reschedulerequest_set.all %}
+                                <div class="reschedule-requests">
+                                    <h5>{% trans "Запросы на перенос записи услуги:" %}</h5>
+                                    {% for req in appointment.reschedulerequest_set.all %}
+                                        <div class="reschedule-request-card">
+                                            <p>
+                                                <strong>{% trans "Новая дата и время:" %}</strong> {{ req.new_date_time }}<br>
+                                                <strong>{% trans "Комментарий:" %}</strong> {{ req.comment }}<br>
+                                                <strong>{% trans "Статус запроса:" %}</strong> {{ req.get_status_display }}
+                                            </p>
+                                            {% if req.status == 'pending' %}
+                                                <form action="{% url 'services:reschedule_update' req.id %}" method="post">
+                                                    {% csrf_token %}
+                                                    <button name="action" value="approve" class="btn btn-success btn-sm">
+                                                        {% trans "Принять" %}
+                                                    </button>
+                                                    <button name="action" value="reject" class="btn btn-danger btn-sm">
+                                                        {% trans "Отклонить" %}
+                                                    </button>
+                                                </form>
+                                            {% endif %}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="appointment-card-footer">
+                            <a href="{% url 'services:appointment_detail' appointment.id %}" 
+                               class="btn btn-outline-primary btn-sm">
+                                {% trans "Подробнее" %}
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="mt-4">
+                {% include 'services/includes/pagination.html' with page_obj=appointments %}
+            </div>
+        {% else %}
+            <p class="no-appointments">{% trans "У вас ещё нет записей на услуги." %}</p>
+        {% endif %}
+    </div>
+</section>
+{% endblock content %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/client_appointments.css' %}">
+{% endblock extra_css %}

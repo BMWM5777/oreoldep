@@ -1,0 +1,64 @@
+{% extends 'main/base.html' %}
+{% load i18n static %}
+
+{% block title %}{% trans "Детали записи" %}{% endblock title %}
+
+{% block content %}
+<section class="appointment-detail-section">
+    <div class="appointment-detail-container">
+        <div class="appointment-detail-card">
+            <div class="appointment-detail-header">
+                <h3>{% trans "Детали записи на услугу" %}</h3>
+            </div>
+            <div class="appointment-detail-body">
+                <h4 class="appointment-service-name">{{ appointment.service.name }}</h4>
+                <p class="appointment-info">
+                    <strong>{% trans "Дата и время:" %}</strong> {{ appointment.date_time }}<br>
+                    <strong>{% trans "Статус записи:" %}</strong>
+                    {% if appointment.status %}
+                        {{ appointment.get_status_display }}
+                    {% else %}
+                        {% trans "Не установлен" %}
+                    {% endif %}<br>
+                    <strong>{% trans "Мастер:" %}</strong> {{ appointment.service.master.get_full_name }}<br>
+                    {% if appointment.car_brand %}
+                        <strong>{% trans "Авто:" %}</strong> {{ appointment.car_brand }}, {{ appointment.car_year }}, {{ appointment.car_number }}<br>
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+
+        {% if reschedule_requests %}
+            <div class="reschedule-requests-container">
+                <h3 class="reschedule-title">{% trans "Запросы на перенос" %}</h3>
+                {% for req in reschedule_requests %}
+                    <div class="reschedule-request-card">
+                        <p>
+                            <strong>{% trans "Новая дата и время:" %}</strong> {{ req.new_date_time }}<br>
+                            <strong>{% trans "Комментарий:" %}</strong> {{ req.comment }}<br>
+                            <strong>{% trans "Статус запроса:" %}</strong> {{ req.get_status_display }}
+                        </p>
+                        {% if req.status == 'pending' and req.new_date_time.weekday != 6 and 9 <= req.new_date_time.hour < 20 %}
+                            <form method="post" action="">
+                                {% csrf_token %}
+                                <button name="action" value="approve" class="btn btn-success btn-sm">{% trans "Принять" %}</button>
+                                <button name="action" value="reject" class="btn btn-danger btn-sm">{% trans "Отклонить" %}</button>
+                            </form>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="no-reschedule-requests">{% trans "Запросов на перенос нет." %}</p>
+        {% endif %}
+
+        <div class="return-link-container">
+            <a href="{% url 'services:client_appointments' %}" class="btn btn-secondary">{% trans "Вернуться к записям" %}</a>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/appointment_details.css' %}">
+{% endblock extra_css %}

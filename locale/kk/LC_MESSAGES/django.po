@@ -1,0 +1,90 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-16 14:58+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: .\stooreol\settings.py:126
+msgid "Русский"
+msgstr ""
+
+#: .\stooreol\settings.py:127
+msgid "Қазақша"
+msgstr ""
+
+#~ msgid "Список аукционов"
+#~ msgstr "Аукциондар тізімі"
+
+#~ msgid "Лоты аукциона"
+#~ msgstr "Аукцион лоттары"
+
+#~ msgid "Админ Дэшборд"
+#~ msgstr "Әкімші бақылау тақтасы"
+
+#~ msgid "Создать лот"
+#~ msgstr "Лот жасау"
+
+#~ msgid "Мои лоты"
+#~ msgstr "Менің лоттарым"
+
+#~ msgid "Текущая цена"
+#~ msgstr "Ағымдағы баға"
+
+#~ msgid "Подробнее"
+#~ msgstr "Толығырақ"
+
+#~ msgid "Нет активных лотов."
+#~ msgstr "Белсенді лоттар жоқ."
+
+#~ msgid "Создать новый лот"
+#~ msgstr "Жаңа лот жасау"
+
+#~ msgid "Основная информация"
+#~ msgstr "Негізгі ақпарат"
+
+#~ msgid "Дополнительные фотографии"
+#~ msgstr "Қосымша фотосуреттер"
+
+#~ msgid "Отправить на модерацию"
+#~ msgstr "Модерацияға жіберу"
+
+#~ msgid "Избранное"
+#~ msgstr "Таңдаулылар"
+
+#~ msgid "Мои избранные товары"
+#~ msgstr "Менің таңдаулы тауарларым"
+
+#~ msgid "товаров"
+#~ msgstr "тауарлар"
+
+#~ msgid "В избранном"
+#~ msgstr "Таңдаулыларда"
+
+#~ msgid "Удалить"
+#~ msgstr "Жою"
+
+#~ msgid "Ваш список избранного пуст"
+#~ msgstr "Сіздің таңдаулылар тізіміңіз бос"
+
+#~ msgid "Сохраняйте понравившиеся товары здесь, чтобы не потерять"
+#~ msgstr "Ұнаған тауарларды жоғалтып алмас үшін осында сақтаңыз"
+
+#~ msgid "Начать покупки"
+#~ msgstr "Сатып алуды бастау"
+
+#~ msgid "Translations"
+#~ msgstr "Аудармалар"

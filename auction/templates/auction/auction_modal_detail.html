@@ -1,0 +1,48 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="auctionModalLabel">{{ auction.title }}</h5>
+</div>
+
+<div class="modal-body">
+    <div class="auction-modal-gallery">
+        {% if auction.images.all %}
+            <img id="auction-modal-main-image"
+                 src="{{ auction.images.first.image.url }}"
+                 class="auction-modal-main-img"
+                 alt="{{ auction.title }}">
+            <div class="auction-modal-thumbnails">
+                {% for image in auction.images.all %}
+                    <img class="auction-modal-thumbnail {% if forloop.first %}active{% endif %}"
+                         src="{{ image.image.url }}"
+                         alt="Миниатюра"
+                         onclick="document.getElementById('auction-modal-main-image').src='{{ image.image.url }}';">
+                {% endfor %}
+            </div>
+        {% elif auction.image %}
+            <img id="auction-modal-main-image"
+                 src="{{ auction.image.url }}"
+                 class="auction-modal-main-img"
+                 alt="{{ auction.title }}">
+        {% endif %}
+    </div>
+    
+    <p class="auction-modal-description">
+        <strong>Описание:</strong> {{ auction.description }}
+    </p>
+
+    {% if auction.admin_comment %}
+    <p class="auction-modal-admin-comment">
+        <strong>Комментарий администратора:</strong> {{ auction.admin_comment }}
+    </p>
+    {% endif %}
+    
+    <p class="auction-modal-price">
+        <strong>Текущая цена:</strong> {{ auction.current_price|floatformat:2 }} тенге
+    </p>
+    <p class="auction-modal-endtime">
+        <strong>Дата окончания:</strong> {{ auction.end_time|date:"d.m.Y H:i" }}
+    </p>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+</div>

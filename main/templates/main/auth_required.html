@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Требуется авторизация" %}{% endblock %}
+
+{% block content %}
+<div class="auth-required-container">
+  <h2>{% trans "Требуется авторизация" %}</h2>
+  <p>
+    {% trans "Для доступа к этому разделу необходимо войти в свой аккаунт." %}
+  </p>
+  <a href="{% url 'users:login' %}?next={{ request.path }}" class="auth-btn">
+    {% trans "Войти / Зарегистрироваться" %}
+  </a>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/auth_required.css' %}">
+{% endblock %}

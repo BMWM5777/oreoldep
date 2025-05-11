@@ -1,0 +1,51 @@
+{% extends "main/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %}{% trans "Список аукционов" %}{% endblock title %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/auction_list.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+<div class="auction-list-container">
+    <div class="auction-list-header">
+        <h2 class="auction-list-title">{% trans "Лоты аукциона" %}</h2>
+        <div class="auction-list-header-buttons">
+            {% if user.is_staff %}
+                <a href="{% url 'auction:admin_dashboard' %}" class="auction-list-admin-btn">{% trans "Админ Дэшборд" %}</a>
+            {% endif %}
+            {% if user.is_authenticated %}
+                <a href="{% url 'auction:create' %}" class="auction-list-create-btn">{% trans "Создать лот" %}</a>
+                <a href="{% url 'auction:my_auctions' %}" class="auction-list-my-lots-btn">{% trans "Мои лоты" %}</a>
+            {% else %}
+                <a href="{% url 'users:login' %}?next={% url 'auction:create_auction' %}" class="auction-list-create-btn">{% trans "Создать лот" %}</a>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if auctions %}
+        <div class="auction-cards-row">
+            {% for auction in auctions %}
+                <div class="auction-card">
+                    {% if auction.image %}
+                        <img src="{{ auction.image.url }}" class="auction-card-img" alt="{{ auction.title }}">
+                    {% endif %}
+                    <div class="auction-card-body">
+                        <h5 class="auction-card-title">{{ auction.title }}</h5>
+                        <p class="auction-card-price">
+                            {% trans "Текущая цена" %}: 
+                            <span>{{ auction.current_price|floatformat:2 }}</span> тенге
+                        </p>
+                        <a href="{% url 'auction:detail' auction.id %}" class="auction-card-button">
+                            {% trans "Подробнее" %}
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="auction-list-empty">{% trans "Нет активных лотов." %}</p>
+    {% endif %}
+</div>
+{% endblock content %}

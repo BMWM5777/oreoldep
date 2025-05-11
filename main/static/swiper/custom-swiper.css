@@ -1,0 +1,72 @@
+/* Общие стили для кнопок навигации */
+.swiper-button-prev,
+.swiper-button-next {
+  background: linear-gradient(135deg, #8e24aa, #6a1b9a); /* мягкий градиент пурпурных тонов */
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Эффект при наведении */
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Позиционирование кнопок внутри секций (настройте отступы по необходимости) */
+.services .swiper-button-prev,
+.why-choose-us .swiper-button-prev {
+  left: 10px;
+}
+.services .swiper-button-next,
+.why-choose-us .swiper-button-next {
+  right: 10px;
+}
+
+/* Стилизация содержимого кнопок – иконки */
+.swiper-button-prev,
+.swiper-button-next {
+  /* Располагаем элементы в строку с небольшим зазором */
+  flex-direction: row;
+  gap: 5px;
+}
+
+.swiper-button-prev .arrow-icon,
+.swiper-button-prev .tool-icon,
+.swiper-button-next .arrow-icon,
+.swiper-button-next .tool-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Общие размеры/цвета иконок */
+.swiper-button-prev i,
+.swiper-button-next i {
+  font-size: 22px;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+/* Эффект при наведении для иконок */
+.swiper-button-prev:hover i,
+.swiper-button-next:hover i {
+  transform: scale(1.1);
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  display: none !important;
+}

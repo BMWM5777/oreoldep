@@ -1,0 +1,85 @@
+{% extends 'main/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Данные об авто" %}{% endblock title %}
+
+{% block content %}
+<section class="car-data-section">
+    <div class="car-data-container">
+        
+        <div class="car-data-header">
+            <h1>{% trans "Данные об автомобиле" %}</h1>
+            <p>{% trans "Укажите или отредактируйте информацию о своём автомобиле." %}</p>
+        </div>
+        
+        <form method="post" class="car-data-form">
+            {% csrf_token %}
+            
+            <div class="car-data-fields">
+                <div class="car-data-field">
+                    <label for="id_car_brand" class="car-data-label">
+                        {% trans "Марка авто" %}
+                    </label>
+                    <input type="text"
+                           class="car-data-input"
+                           id="id_car_brand"
+                           name="car_brand"
+                           placeholder="{% trans 'Например, BMW' %}"
+                           value="{{ form.car_brand.value|default_if_none:'' }}">
+                </div>
+                
+                <div class="car-data-field">
+                    <label for="id_car_year" class="car-data-label">
+                        {% trans "Год авто" %}
+                    </label>
+                    <input type="number"
+                           class="car-data-input"
+                           id="id_car_year"
+                           name="car_year"
+                           placeholder="{% trans 'Например, 2020' %}"
+                           value="{{ form.car_year.value|default_if_none:'' }}">
+                </div>
+                
+                <div class="car-data-field">
+                    <label for="id_car_number" class="car-data-label">
+                        {% trans "Гос. номер авто" %}
+                    </label>
+                    <input type="text"
+                           class="car-data-input"
+                           id="id_car_number"
+                           name="car_number"
+                           placeholder="{% trans 'Например, 755KEA04' %}"
+                           value="{{ form.car_number.value|default_if_none:'' }}">
+                </div>
+                
+                <div class="car-data-field">
+                    <label for="id_vin_code" class="car-data-label">
+                        {% trans "VIN код авто" %}
+                    </label>
+                    <input type="text"
+                           class="car-data-input"
+                           id="id_vin_code"
+                           name="vin_code"
+                           placeholder="{% trans 'Введите VIN код' %}"
+                           value="{{ form.vin_code.value|default_if_none:'' }}">
+                </div>
+            </div>
+            
+            <div class="car-data-actions">
+                <button type="submit" class="car-data-btn save-btn">
+                    {% trans "Сохранить" %}
+                </button>
+                <a href="{% url 'users:profile' %}" class="car-data-btn cancel-btn">
+                    {% trans "Назад" %}
+                </a>
+            </div>
+        </form>
+        
+    </div>
+</section>
+{% endblock content %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/car_data.css' %}">
+{% endblock extra_css %}

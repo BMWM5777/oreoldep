@@ -1,0 +1,169 @@
+{% extends "main/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+    {{ product.name }}
+{% endblock title %}
+
+{% block content %}
+<div class="product-page">
+    <div class="product-container">
+        <div class="product-gallery">
+            {% for image in product.images.all %}
+                <img class="product-image {% if forloop.first %}active{% endif %}"
+                     src="{{ image.image.url }}" alt="{% trans "Фото товара" %}">
+            {% endfor %}
+            <div class="gallery-thumbnails">
+                {% for image in product.images.all %}
+                    <img class="thumbnail {% if forloop.first %}selected{% endif %}"
+                         src="{{ image.image.url }}" alt="{% trans "Миниатюра" %}">
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="product-info">
+            <div class="title-wrapper">
+                <h1 class="product-title">{{ product.name }}</h1>
+                {% if user.is_authenticated %}
+                <form action="{% url 'favorites:add_to_favorites' product.id %}"
+                      method="post" class="card-fav-form">
+                    {% csrf_token %}
+                    <button type="submit" class="card-fav-button">
+                        {% if product.id in favorite_product_ids %}
+                            <i class="fa fa-star fav-active" aria-hidden="true"></i>
+                        {% else %}
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        {% endif %}
+                    </button>
+                </form>
+                {% endif %}
+            </div>
+            <p class="product-category">
+                {% trans "Категория" %}: <span>{{ product.category }}</span>
+            </p>
+
+            {% if product.discount %}
+                <div class="product-price">
+                    <span class="old-price">{{ product.price }} KZT</span>
+                    <span class="new-price">{{ product.sell_price }} KZT</span>
+                    <span class="discount-label">-{{ product.discount }}%</span>
+                </div>
+            {% else %}
+                <p class="new-price">{{ product.price }} KZT</p>
+            {% endif %}
+
+            <div class="product-desc">
+        <strong>{% trans 'Описание' %}:</strong>
+        <span id="desc-content">{{ product.description|linebreaks }}</span>
+      </div>
+      <button type="button"
+              id="toggle-desc-btn"
+              class="btn btn-secondary mt-2"
+              style="display: none;">
+        {% trans 'Показать полностью' %}
+      </button>
+
+            <form action="{% url 'cart:cart_add' product.id %}"
+                  class="cart-form" method="post">
+                <div class="quantity-select">
+                    {{ cart_product_form }}
+                    {% csrf_token %}
+                </div>
+                <button type="submit" class="cart-btn">
+                    {% trans "Добавить в корзину" %}
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="product-specs">
+        <h2>{% trans "Дополнительная информация" %}</h2>
+        <ul>
+            <li><strong>{% trans "Категория" %}:</strong> {{ product.category }}</li>
+            <li>
+              <strong>{% trans "Цена" %}:</strong>
+              {% if product.discount %}
+                {{ product.sell_price }} KZT
+              {% else %}
+                {{ product.price }} KZT
+              {% endif %}
+            </li>
+            <li>
+              <strong>{% trans "Обновлено" %}:</strong>
+              {{ product.updated|date:"d.m.Y" }}
+            </li>
+            <li>
+                <strong>{% trans "Рейтинг" %}:</strong>
+                {% if reviews_count %}
+                  {{ avg_rating|floatformat:1 }} / 5 ({{ reviews_count }})
+                  <span class="rating-stars">
+                    {% for _ in "12345" %}
+                      {% if forloop.counter <= avg_rating %}
+                        <i class="fas fa-star"></i>
+                      {% elif forloop.counter|add:"-0.5" <= avg_rating %}
+                        <i class="fas fa-star-half-alt"></i>
+                      {% else %}
+                        <i class="far fa-star"></i>
+                      {% endif %}
+                    {% endfor %}
+                  </span>
+                {% else %}
+                  {% trans "Нет оценок" %}
+                {% endif %}
+              </li>
+              
+        </ul>
+    </div>
+    
+
+    <div class="product-reviews-section">
+        <h2>{% trans "Отзывы" %}</h2>
+
+        <div class="product-reviews">
+            {% for rev in product.reviews.all %}
+                <div class="review-item">
+                    <img src="{{ rev.get_avatar }}" class="avatar" alt="{{ rev.user.username }}">
+                    <p>
+                        <strong>{{ rev.user.username }}</strong>
+                        {% for _ in "x"|rjust:rev.rating %}
+                            <i class="fas fa-star"></i>
+                        {% endfor %}
+                    </p>
+                    <p>{{ rev.text }}</p>
+                    <small>{{ rev.created_at|date:"d.m.Y H:i" }}</small>
+                </div>
+            {% empty %}
+                <p class="no-reviews">{% trans "Пока нет отзывов." %}</p>
+            {% endfor %}
+        </div>
+
+        {% if user.is_authenticated and can_review %}
+            <a href="{% url 'reviews:add_product_review' product.slug %}"
+               class="btn btn-primary review-btn">
+                {% trans "Оставить отзыв" %}
+            </a>
+        {% elif user.is_authenticated %}
+            <p class="text-muted">
+                {% trans "Вы не можете оставить отзыв на этот товар." %}
+            </p>
+        {% else %}
+            <p>
+                <a href="{% url 'users:login' %}?next={{ request.path }}">
+                    {% trans "Войдите" %}
+                </a>
+                {% trans "чтобы оставить отзыв." %}
+            </p>
+        {% endif %}
+    </div>
+    
+</div>
+{% endblock content %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+{% endblock extra_css %}
+
+{% block extra_js %}
+    <script src="{% static 'js/detail.js' %}"></script>
+{% endblock extra_js %}

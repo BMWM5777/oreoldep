@@ -1,0 +1,223 @@
+{% extends "main/base.html" %}
+{% load i18n %}
+{% load static %}
+{% load censor %}
+{% block title %}{{ auction.title }}{% endblock title %}
+
+{% block content %}
+<div class="auction-detail-container">
+    <h2 class="auction-detail-title">{% blocktrans %}{{ auction.title }}{% endblocktrans %}</h2>
+    <div class="auction-detail-content">
+        <div class="auction-detail-left">
+            <div class="auction-gallery">
+                {% if auction.images.all %}
+                    <img id="main-image" src="{{ auction.images.first.image.url }}" class="auction-detail-img" alt="{{ auction.title }}">
+                    <div class="gallery-thumbnails">
+                        {% for image in auction.images.all %}
+                            <img class="thumbnail" src="{{ image.image.url }}" alt="{% trans 'Миниатюра' %}" onclick="changeImage('{{ image.image.url }}')">
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            <p class="auction-detail-description">{{ auction.description }}</p>
+            <p class="auction-detail-price">
+                <strong>{% trans "Стартовая цена:" %}</strong>
+                <span id="starting-price">{{ auction.starting_price|floatformat:2 }}</span> {% trans "тенге" %}
+            </p>
+            <p class="auction-detail-price">
+                <strong>{% trans "Текущая цена:" %}</strong>
+                <span id="current-price">{{ auction.current_price|floatformat:2 }}</span> {% trans "тенге" %}
+            </p>
+            <p class="auction-detail-starttime">
+                <strong>{% trans "Дата начала:" %}</strong>
+                {{ auction.start_time|date:"d.m.Y H:i" }}
+            </p>
+            <p class="auction-detail-endtime">
+                <strong>{% trans "Дата окончания:" %}</strong>
+                {{ auction.end_time|date:"d.m.Y H:i" }}
+            </p>
+            {% if auction.status != 'completed' %}
+                <div id="countdown" class="auction-countdown"></div>
+            {% endif %}
+            
+            {% if auction.status == 'completed' %}
+                <div class="auction-finished-message">
+                    <p>{% trans "Аукцион завершён." %}</p>
+                    {% if auction.winner %}
+                        <p>{% trans "Победитель:" %} <strong>{{ auction.winner.username|censor_username }}</strong></p>
+                    {% else %}
+                        <p>{% trans "Победитель не определён." %}</p>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="auction-detail-right">
+            {% if auction.status != 'completed' %}
+                {% if can_bid %}
+                    <h4 class="auction-detail-bid-title">{% trans "Сделать ставку" %}</h4>
+                    <form method="post" class="auction-detail-bid-form" id="bid_form">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button 
+                            type="button" 
+                            class="auction-detail-bid-button step-button"
+                            onclick="addStep()"
+                        >
+                            + {{ auction.bid_step }} {% trans "тенге" %}
+                        </button>
+                        <button type="submit" class="auction-detail-bid-button">{% trans "Сделать ставку" %}</button>
+                    </form>
+                {% else %}
+                    <p class="auction-detail-no-bid">{{ inform_message }}</p>
+                {% endif %}
+            {% else %}
+                <p class="auction-detail-no-bid">{% trans "Ставки больше не принимаются." %}</p>
+            {% endif %}
+            <hr>
+            <h4 class="auction-detail-history-title">{% trans "История ставок" %}</h4>
+            <ul class="auction-detail-history-list">
+                {% for bid in bids %}
+                    <li class="auction-detail-history-item">
+                        <strong>{{ bid.bidder.username|censor_username }}</strong> {% trans "поставил" %}
+                        <strong>{{ bid.bid_amount|floatformat:2 }} {% trans "тенге" %}.</strong>
+                        <small class="auction-detail-history-date">
+                            {{ bid.timestamp|date:"d.m.Y H:i" }}
+                        </small>
+                    </li>
+                {% empty %}
+                    <li class="auction-detail-history-item no-bids">
+                        {% trans "Пока ставок нет." %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/auction_detail.css' %}">
+{% endblock extra_css %}
+
+{% block extra_js %}
+<script>
+    function changeImage(src) {
+        document.getElementById('main-image').src = src;
+    }
+
+    function addStep() {
+        let currentPrice = parseFloat(document.getElementById("current-price").innerText.replace(/\s/g, ''));
+        let step = parseFloat("{{ auction.bid_step }}");
+        let newBid = currentPrice + step;
+        let bidInput = document.getElementById("id_bid_amount") || document.querySelector("input[name='bid_amount']");
+        if(bidInput) {
+            bidInput.value = newBid.toFixed(2);
+        } else {
+            console.error("Поле ввода ставки не найдено!");
+        }
+    }
+
+    {% if auction.status != 'completed' %}
+    function updateBids() {
+        fetch("{% url 'auction:get_bids' auction.id %}")
+            .then(response => response.json())
+            .then(data => {
+                document.querySelector('.auction-detail-history-list').innerHTML = data.bids_html;
+            })
+            .catch(error => console.error('Ошибка при обновлении ставок:', error));
+    }
+    let bidsInterval = setInterval(updateBids, 1000);
+
+    const auctionStartTime = new Date("{{ auction.start_time|date:'Y-m-d H:i:s' }}").getTime();
+    const auctionEndTime   = new Date("{{ auction.end_time|date:'Y-m-d H:i:s' }}").getTime();
+
+    function startAuctionTimers() {
+        let informMessage = document.querySelector('.auction-detail-no-bid');
+        if(informMessage) {
+            informMessage.style.display = 'none';
+        }
+        let bidForm = document.querySelector('.auction-detail-bid-form');
+        if(bidForm) {
+            bidForm.style.display = 'block';
+        }
+
+        {% if auction.auction_type == 'live' %}
+            liveAuctionStatusInterval = setInterval(updateAuctionStatus, 1000);
+        {% else %}
+            fixedTimerInterval = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = auctionEndTime - now;
+                if(distance < 0) {
+                    clearInterval(fixedTimerInterval);
+                    document.getElementById("countdown").innerHTML = "Аукцион завершён";
+                } else {
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                    document.getElementById("countdown").innerHTML = "Осталось: " + hours + "ч " + minutes + "м " + seconds + "с";
+                }
+            }, 1000);
+        {% endif %}
+    }
+
+    function checkAndStartAuction() {
+        const now = new Date().getTime();
+        if (now < auctionStartTime) {
+            const distance = auctionStartTime - now;
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("countdown").innerHTML = "До начала аукциона: " 
+                + hours + "ч " + minutes + "м " + seconds + "с";
+        } else {
+            clearInterval(preStartInterval);
+            location.reload();
+        }
+    }
+    
+    if (new Date().getTime() < auctionStartTime) {
+        var preStartInterval = setInterval(checkAndStartAuction, 1000);
+    } else {
+        startAuctionTimers();
+    }
+    
+
+    {% if auction.auction_type == 'live' %}
+    function updateAuctionStatus() {
+        fetch("{% url 'auction:get_auction_status' auction.id %}")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("current-price").innerText = parseFloat(data.current_price).toFixed(2);
+                
+                if(data.status === "completed") {
+                    const bidForm = document.querySelector('.auction-detail-bid-form');
+                    if(bidForm) { bidForm.style.display = "none"; }
+                    if(!document.querySelector('.auction-finished-message')) {
+                        let messageDiv = document.createElement("div");
+                        messageDiv.className = "auction-finished-message";
+                        let messageText = "Аукцион завершён. ";
+                        if(data.winner) {
+                            messageText += "Победитель: " + data.winner + ".";
+                        } else {
+                            messageText += "Победитель не определён.";
+                        }
+                        messageDiv.innerText = messageText;
+                        const rightColumn = document.querySelector('.auction-detail-right');
+                        rightColumn.insertBefore(messageDiv, rightColumn.firstChild);
+                    }
+                    clearInterval(liveAuctionStatusInterval);
+                    clearInterval(bidsInterval);
+                } else {
+                    let remaining = parseInt(data.remaining_seconds);
+                    const minutes = Math.floor(remaining / 60);
+                    const seconds = remaining % 60;
+                    document.getElementById("countdown").innerHTML = "Осталось: " + minutes + "м " + seconds + "с";
+                }
+            })
+            .catch(error => console.error("Ошибка обновления статуса аукциона:", error));
+    }
+    let liveAuctionStatusInterval;
+    {% endif %}
+    {% endif %}
+</script>
+{% endblock extra_js %}

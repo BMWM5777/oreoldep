@@ -1,0 +1,50 @@
+{% extends 'main/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Запрос на перенос" %}{% endblock title %}
+
+{% block content %}
+<div class="reschedule-container">
+    <div class="reschedule-card">
+        <div class="reschedule-card-header">
+            <h2 class="mb-0">{% trans "Создать запрос на перенос записи" %}</h2>
+        </div>
+        <div class="reschedule-card-body">
+            <form method="post" action="">
+                {% csrf_token %}
+                {% if form.errors %}
+                    <div class="alert alert-danger">
+                        <strong>{% trans "Ошибка!" %}</strong> {% trans "Пожалуйста, исправьте следующие ошибки:" %}
+                        <ul>
+                            {% for field in form %}
+                                {% for error in field.errors %}
+                                    <li>{{ field.label }}: {{ error }}</li>
+                                {% endfor %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+
+                <div class="reschedule-form-group">
+                    <label for="id_new_date_time" class="form-label">{% trans "Новая дата и время" %}</label>
+                    {{ form.new_date_time }}
+                </div>
+                
+                <div class="reschedule-form-group">
+                    <label for="id_comment" class="form-label">{% trans "Комментарий" %}</label>
+                    {{ form.comment }}
+                </div>
+                
+                <button type="submit" class="btn reschedule-btn-primary">
+                    {% trans "Отправить запрос" %}
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/reschedule_request_form.css' %}">
+{% endblock extra_css %}

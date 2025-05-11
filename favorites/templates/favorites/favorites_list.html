@@ -1,0 +1,74 @@
+{% extends "main/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Избранное" %}{% endblock title %}
+
+{% block content %}
+<div class="favorites-container">
+    <div class="favorites-header">
+        <h2 class="favorites-title">{% trans "Мои избранные товары" %}</h2>
+        <div class="favorites-counter">{{ products|length }} {% trans "товаров" %}</div>
+    </div>
+
+    {% if messages %}
+    <div class="favorites-messages">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="favorite-products">
+        {% if products %}
+            {% for product in products %}
+                <div class="favorite-item">
+                    <a href="{{ product.get_absolute_url }}" class="favorite-link">
+                        <div class="favorite-image-wrapper">
+                            <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/noimage.jpg' %}{% endif %}" 
+                                 alt="{{ product.name }}" 
+                                 loading="lazy">
+                            <div class="favorite-item-badge">⭐ {% trans "В избранном" %}</div>
+                        </div>
+                        <div class="favorite-info">
+                            <p class="favorite-item-name">{{ product.name }}</p>
+                            {% if product.category %}
+                            <p class="favorite-item-category">{{ product.category.name }}</p>
+                            {% endif %}
+                            <div class="price-container">
+                                <p class="favorite-item-price">{{ product.price }} ₸</p>
+                                {% if product.old_price %}
+                                    <p class="favorite-item-old-price">{{ product.old_price }} ₸</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </a>
+                    <form action="{% url 'favorites:add_to_favorites' product.id %}" method="post" class="favorite-delete-form">
+                        {% csrf_token %}
+                        <input type="hidden" name="redirect_to" value="favorites_list">
+                        <button type="submit" class="favorite-delete-btn">
+                            <svg class="trash-icon" viewBox="0 0 24 24">
+                                <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                            </svg>
+                            <span class="delete-text">{% trans "Удалить" %}</span>
+                        </button>
+                    </form>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="favorites-empty">
+                <div class="empty-heart">⭐</div>
+                <h3>{% trans "Ваш список избранного пуст" %}</h3>
+                <p>{% trans "Сохраняйте понравившиеся товары здесь, чтобы не потерять" %}</p>
+                <a href="{% url 'main:product_list' %}" class="cta-button">{% trans "Начать покупки" %}</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/favorite.css' %}">
+{% endblock extra_css %}

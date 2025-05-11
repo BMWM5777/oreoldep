@@ -1,0 +1,250 @@
+.auth-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.auth-container {
+    max-width: 1600px;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.auth-illustration {
+    position: relative;
+    background: #6200ea;
+    padding: 2rem;
+}
+
+.auth-image {
+    width: 250px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+
+.auth-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+
+.auth-tagline {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.auth-subtext {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.auth-content {
+    padding: 4rem 3rem;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.auth-logo {
+    width: 80px;
+    margin-bottom: 1.5rem;
+}
+
+.auth-title {
+    font-size: 2rem;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+}
+
+.auth-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.auth-form-group {
+    margin-bottom: 1.5rem;
+}
+
+.auth-form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #4a4a4a;
+    font-weight: 500;
+}
+
+.auth-icon {
+    margin-right: 0.5rem;
+    color: #6200ea;
+}
+
+.auth-form-control {
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.auth-form-control:focus {
+    border-color: #6200ea;
+    box-shadow: 0 0 0 3px rgba(98,0,234,0.1);
+}
+
+.auth-password-wrapper {
+    position: relative;
+}
+
+.auth-password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+}
+
+.auth-primary-btn {
+    width: 100%;
+    padding: 1rem;
+    background: #6200ea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+}
+
+.auth-primary-btn:hover {
+    background: #4500a8;
+    transform: translateY(-2px);
+}
+
+.auth-links {
+    margin-top: 2rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.auth-link {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.auth-link:hover {
+    color: #6200ea;
+}
+
+.auth-divider {
+    color: #ddd;
+}
+
+@media (max-width: 768px) {
+    .auth-container {
+        grid-template-columns: 1fr;
+        margin: 1rem;
+    }
+
+    .auth-illustration {
+        display: none;
+    }
+
+    .auth-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .auth-title {
+        font-size: 1.75rem;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.auth-content {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Стили для блока сообщений (Django messages) */
+.messages {
+    margin: 1rem 0;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+/* Для успешного сообщения */
+.message.success {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+/* Для сообщения об ошибке */
+.message.error {
+    background: #ffebee;
+    color: #c62828;
+}
+
+/* Стили для общего списка ошибок формы (non-field errors) */
+.error-list {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: #fff5f5;
+    border-radius: 6px;
+    border-left: 4px solid #ff5252;
+    font-size: 0.9rem;
+}
+
+/* Стили для ошибок конкретного поля */
+.field-errors {
+    margin-top: 0.5rem;
+    padding-left: 1rem;
+    color: #d32f2f;
+    font-size: 0.85rem;
+}
+
+.field-errors p.error {
+    margin: 0.25rem 0;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}

@@ -1,0 +1,291 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ request.LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/language.css' %}">
+    <link rel="stylesheet" href="{% static 'css/chatbot.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header sticky-top">
+            <div class="header-container d-flex">
+
+              <button class="burger-menu d-md-none" type="button" aria-label="Toggle navigation" onclick="toggleMenu()">
+                &#9776;
+              </button>
+          
+              <nav class="header-nav pt-4 d-none d-md-block">
+                <ul class="header-list d-flex">
+                  <li>
+                    <a href="/" class="nav-a m-3">{% trans "На главную" %}</a>
+                  </li>
+                  <li>
+                    <a href="/shop" class="nav-a m-3">{% trans "Магазин" %}</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'services:service_list' %}" class="nav-a m-3">{% trans "Услуги" %}</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'auction:list' %}" class="nav-a m-3" onclick="if (!{{ user.is_authenticated|yesno:'true,false' }}) { showAuthModal(); return false; }">
+                      {% trans "Аукцион" %}
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+          
+              <div class="header-logo d-none d-md-block">
+                <a href="/shop"><img src="{% static 'img/logo.png' %}" alt="" class="oreol-logo"></a>
+              </div>
+          
+              <div class="language-switcher d-none d-md-block">
+                <form action="{% url 'set_language' %}" method="post">
+                  {% csrf_token %}
+                  <select name="language" class="language-select" onchange="this.form.submit()">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% for lang_code, lang_name in LANGUAGES %}
+                    <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}
+                            data-flag="{% static 'img/flags/'|add:lang_code|add:'.png' %}">
+                      {{ lang_name }}
+                    </option>
+                    {% endfor %}
+                  </select>
+                </form>
+              </div>
+          
+              <div id="mobileMenu" class="mobile-menu d-md-none">
+                <ul class="header-list">
+                  <li>
+                    <a href="/" class="nav-a m-3">{% trans "На главную" %}</a>
+                  </li>
+                  <li>
+                    <a href="/shop" class="nav-a m-3">{% trans "Магазин" %}</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'services:service_list' %}" class="nav-a m-3">{% trans "Услуги" %}</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'auction:list' %}" class="nav-a m-3" onclick="if (!{{ user.is_authenticated|yesno:'true,false' }}) { showAuthModal(); return false; }">
+                      {% trans "Аукцион" %}
+                    </a>
+                  </li>
+                  <li>
+                    <form action="{% url 'set_language' %}" method="post">
+                      {% csrf_token %}
+                      <select name="language" class="language-select" onchange="this.form.submit()">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}
+                        {% for lang_code, lang_name in LANGUAGES %}
+                        <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}
+                                data-flag="{% static 'img/flags/'|add:lang_code|add:'.png' %}">
+                          {{ lang_name }}
+                        </option>
+                        {% endfor %}
+                      </select>
+                    </form>
+                  </li>
+                </ul>
+              </div>
+              <div class="header-profile pt-2">
+                <a href="{% url 'cart:cart_detail' %}">
+                  <img src="{% static 'img/cart-img.png' %}" class="cart-img-228" alt="">
+                </a>
+
+                {% if user.is_authenticated %}
+                <div class="navbar-favorites">
+                    <a href="{% url 'favorites:favorites_list' %}">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        {% with fav_count=user.favorites.count %}
+                            <span class="fav-count">{{ fav_count }}</span>
+                        {% endwith %}
+                    </a>
+                </div>
+                {% endif %}
+          
+                {% if user.is_authenticated %}
+                  <div class="dropdown profile-dropdown d-none d-md-inline">
+                    <button class="btn profile-btn dropdown-toggle" type="button"
+                            id="profileDropdown"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                      {% trans "Профиль" %}
+
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                      <li><a class="dropdown-item" href="{% url 'users:profile' %}">{% trans "Личный Кабинет" %}</a></li>
+                      <li><a class="dropdown-item" href="{% url 'users:car_data' %}">{% trans "Данные об Авто" %}</a></li>
+                      <li><a class="dropdown-item" href="{% url 'users:orders_history' %}">{% trans "История Заказов" %}</a></li>
+                      <li><a class="dropdown-item" href="{% url 'services:client_appointments' %}">{% trans "Мои Услуги" %}</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="{% url 'users:logout' %}">{% trans "Выйти из аккаунта" %}</a></li>
+                    </ul>
+                  </div>
+          
+                  <button class="btn profile-btn d-md-none"
+                          type="button"
+                          data-bs-toggle="offcanvas"
+                          data-bs-target="#offcanvasProfile"
+                          aria-controls="offcanvasProfile">
+                    {% trans "Профиль" %}
+                  </button>
+          
+                  <div class="offcanvas offcanvas-end d-md-none" tabindex="-1" id="offcanvasProfile" aria-labelledby="offcanvasProfileLabel">
+                    <div class="offcanvas-header">
+                      <h5 class="offcanvas-title" id="offcanvasProfileLabel">{% trans "Профиль" %}</h5>
+                      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                      <ul class="list-unstyled">
+                        <li><a href="{% url 'users:profile' %}" class="nav-link">{% trans "Личный Кабинет" %}</a></li>
+                        <li><a href="{% url 'users:car_data' %}" class="nav-link">{% trans "Данные об Авто" %}</a></li>
+                        <li><a href="{% url 'users:orders_history' %}" class="nav-link">{% trans "История Заказов" %}</a></li>
+                        <li><a href="{% url 'services:client_appointments' %}" class="nav-link">{% trans "Мои Услуги" %}</a></li>
+                        <hr>
+                        <li><a href="{% url 'users:logout' %}" class="nav-link">{% trans "Выйти из аккаунта" %}</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                {% else %}
+                  <a href="{% url 'users:login' %}" class="m-2">{% trans "Регистрация/Вход" %}</a>
+                {% endif %}
+          
+                <p class="cart-quantity">
+                  {% with cart_quantity=cart|length %}
+                    {% if cart_quantity > 0 %}
+                      {{ cart_quantity }}
+                    {% else %}
+                      0
+                    {% endif %}
+                  {% endwith %}
+                </p>
+              </div>
+            </div>
+          </header>
+          
+
+    <main class="container">
+        {% block content %}
+        {% endblock content %}
+    </main>
+    
+    <div class="chat-container" id="chatContainer">
+      <button class="chat-button" onclick="toggleChat()">🤖</button>
+      <div class="chat-window" id="chatWindow">
+        <div class="card shadow-sm">
+          <div class="card-header">
+            <h5 class="mb-0">Автосервисный консультант</h5>
+            <button id="clear-chat" class="btn btn-sm btn-light text-dark">Очистить</button>
+          </div>
+          <div class="card-body" id="chat-box">
+          </div>
+          <form id="chat-form" class="card-footer">
+            <div class="input-group">
+              <input type="text" id="user-message" class="form-control" placeholder="Напишите вопрос..." required>
+              <button type="submit" class="btn btn-primary">Отправить</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+
+    <footer class="footer fade-in">
+        <div class="footer-container">
+            <div class="contact-info">
+                <h3>{% trans "Свяжитесь с нами" %}</h3>
+                <p><strong>{% trans "Номер телефона" %}:</strong> <a href="tel:+77785514008">+7 (778) 551-40-08</a></p>
+                <p><strong>{% trans "Тех. поддержка" %}:</strong> <a href="mailto:oreol.kz@mail.ru">oreol.kz@mail.ru</a></p>
+                <p class="developers" strong>{% trans "Разработчики" %}:</strong> Mussin Dilshat & Berikov Danial</p>
+            </div>
+
+            <div class="footer-map">
+                <div id="map" class="map"></div>
+            </div>  
+
+            <div class="socials">
+                <h3>{% trans "Социальные сети" %}</h3>
+                <div class="social-icons">
+                    <a href="https://wa.me/77785514008" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://t.me/dilsha04" target="_blank"><i class="fab fa-telegram"></i></a>
+                    <a href="https://instagram.com/d_mussin" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <a href="/">{% trans "На главную" %}</a>
+            <a href="/" id="about-link">{% trans "О нас" %}</a>
+            <a href="{% url 'services:service_list' %}">{% trans "Услуги" %}</a>
+            <a href="{% url 'reviews:all_reviews' %}">{% trans "Отзывы" %}</a>
+            <a href="/">{% trans "Контакты" %}</a>
+        </div>
+
+        <button id="scrollTop">↑ {% trans "Наверх" %}</button>
+
+        <div class="footer-bottom">
+            <p>© <span class="footer-year" id="year"></span> {% trans "Все права защищены" %} | {% trans "Авторские права Ореол" %}</p>
+        </div>  
+    </footer>
+    <div class="modal fade" id="authModal" data-bs-backdrop="false" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content auth-modal-content">
+          <div class="modal-header auth-modal-header">
+            <h5 class="modal-title auth-modal-title" id="authModalLabel">{% trans "Доступ ограничен" %}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Закрыть' %}"></button>
+          </div>
+          <div class="modal-body auth-modal-body">
+            {% trans "Чтобы попасть на эту страницу, необходимо авторизоваться." %}
+          </div>
+          <div class="modal-footer auth-modal-footer">
+            <a href="{% url 'users:login' %}?next={{ request.path }}" class="btn auth-btn auth-btn-primary">
+              {% trans "Войти" %}
+            </a>
+            <button type="button" class="btn auth-btn auth-btn-secondary" data-bs-dismiss="modal">
+              {% trans "Отмена" %}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    </div>
+
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/language.js' %}" defer></script>
+    <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
+    <script src="{% static 'js/map.js' %}"></script>
+    <script src="{% static 'js/footer.js' %}"></script>
+    <script src="{% static 'js/chatbot.js' %}"></script>
+    <script>
+        function toggleMenu() {
+          var menu = document.getElementById("mobileMenu");
+          menu.classList.toggle("open");
+        }
+
+        function showAuthModal() {
+          var authModalEl = document.getElementById('authModal');
+          if (authModalEl) {
+              var authModal = new bootstrap.Modal(authModalEl);
+              authModal.show();
+          }
+      }
+    </script>
+    <script>
+      window.CHATBOT_API_URL = "{% url 'chatbot:chat' %}";
+      window.CHATBOT_URL = "{% url 'chatbot:chat' %}";
+      window.CHATBOT_HISTORY_URL = "{% url 'chatbot:chat_history' %}";
+      window.CHATBOT_CLEAR_URL = "{% url 'chatbot:clear_history' %}";
+    </script>
+    {% block extra_css %}{% endblock extra_css %}
+    {% block extra_js %}{% endblock extra_js %}
+</body>
+</html>

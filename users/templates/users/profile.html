@@ -1,0 +1,113 @@
+{% extends 'main/base.html' %}
+{% load i18n static %}
+
+{% block title %}{% trans "Профиль" %}{% endblock title %}
+
+{% block content %}
+<div class="profile-wrapper d-flex justify-content-center">
+    <div class="profile-window bg-white p-4 mb-4 mx-2 rounded shadow">
+        
+        <section class="profile-form-section">
+            <form action="{% url 'users:profile' %}" method="post" enctype="multipart/form-data">
+                <h2 class="mb-4">{% trans "Профиль" %}</h2>
+                {% csrf_token %}
+
+                <div class="profile-header d-flex flex-wrap align-items-start mb-4">
+                    <div class="profile-photo text-center me-4 mb-3">
+                        {% if user.image %}
+                            <img src="{{ user.image.url }}" alt="Avatar" class="img-avatar rounded-circle">
+                        {% else %}
+                            <img src="{% static 'img/noimage.jpg' %}" alt="Avatar" class="img-avatar rounded-circle">
+                        {% endif %}
+                        <div class="mt-3">
+                            <label for="id_image" class="form-label">{% trans "Выбрать фото" %}</label>
+                            <input type="file" class="form-control form-input" id="id_image" name="image" accept="image/*">
+                        </div>
+                    </div>
+                    
+                    <div class="profile-info flex-grow-1">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="id_username" class="form-label">{% trans "Имя пользователя" %}</label>
+                                <input type="text" class="form-control form-input" id="id_username" name="username"
+                                       placeholder="{% trans 'Ваше имя пользователя' %}" 
+                                       value="{{ form.username.value }}" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="id_email" class="form-label">{% trans "Почта" %}</label>
+                                <input type="email" class="form-control form-input" id="id_email" name="email"
+                                       placeholder="{% trans 'Ваша почта' %}" 
+                                       value="{{ form.email.value }}" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="id_first_name" class="form-label">{% trans "Имя" %}</label>
+                                <input type="text" class="form-control form-input" id="id_first_name" name="first_name"
+                                       placeholder="{% trans 'Ваше имя' %}" 
+                                       value="{{ form.first_name.value }}" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="id_last_name" class="form-label">{% trans "Фамилия" %}</label>
+                                <input type="text" class="form-control form-input" id="id_last_name" name="last_name"
+                                       placeholder="{% trans 'Ваша фамилия' %}" 
+                                       value="{{ form.last_name.value }}" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="id_phone" class="form-label">{% trans "Телефон" %}</label>
+                                <input type="tel" class="form-control form-input" id="id_phone" name="phone"
+                                       placeholder="{% trans 'Ваш номер телефона' %}" 
+                                       value="{{ form.phone.value }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="action-buttons d-flex gap-4 mt-4">
+                    <button type="submit" class="btn profile-btn">{% trans "Сохранить" %}</button>
+                    <a class="btn profile-btn" href="{% url 'user:logout' %}">{% trans "Выйти" %}</a>
+                </div>
+            </form>
+        </section>
+
+        <section class="row mt-5">
+            <div class="col-md-6">
+                <h2 class="mb-3">{% trans "Истории заказов" %}</h2>
+                {% if orders %}
+                    <div class="orders-list">
+                        {% for order in orders %}
+                            <article class="order-card mb-3">
+                                <header>
+                                    <h5 class="order-title">{% trans "Заказ" %} № {{ order.id }}</h5>
+                                </header>
+                                <div class="order-details">
+                                    {% for item in order.items.all %}
+                                        <div class="order-item mb-2">
+                                            <span class="order-label">{% trans "Наименование" %}:</span>
+                                            <a href="{% url 'main:product_detail' item.product.slug %}" class="order-link">
+                                                {{ item.product.name }}
+                                            </a>
+                                            <br>
+                                            <span class="order-label">{% trans "Количество" %}:</span> {{ item.quantity }},
+                                            <span class="order-label">{% trans "Цена" %}:</span> {{ item.price }} KZT
+                                            <br>
+                                            <span class="order-label">{% trans "Дата создания заказа" %}:</span> {{ order.created }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </article>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p class="text-center not-orders">{% trans "У вас ещё нет заказов." %}</p>
+                {% endif %}
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock content %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock extra_css %}

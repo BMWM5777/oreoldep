@@ -1,0 +1,79 @@
+{% extends 'main/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Записи на мои услуги" %}{% endblock title %}
+
+{% block content %}
+<div class="appointments-container">
+    <div class="appointments-header">
+        <h2>{% trans "Записи на мои услуги" %}</h2>
+    </div>
+    <a href="{% url 'services:master_appointments_calendar' %}" class="btn btn-primary">
+        {% trans "Показать календарь" %}
+      </a>
+      
+    {% if appointments %}
+        <div class="appointments-list">
+            {% for appointment in appointments %}
+                <div class="appointment-card">
+                    <div class="appointment-card-header">
+                        <h4>{{ appointment.service.name }}</h4>
+                    </div>
+                    <div class="appointment-card-body">
+                        <p>
+                            <strong>{% trans "Клиент:" %}</strong> {{ appointment.client.get_full_name }}<br>
+                            <strong>{% trans "Дата и время:" %}</strong> {{ appointment.date_time }}<br>
+                            <strong>{% trans "Контакты:" %}</strong> {{ appointment.client.email }}<br>
+                            {% if appointment.car_brand %}
+                                <strong>{% trans "Авто:" %}</strong> {{ appointment.car_brand }}, {{ appointment.car_year }}, {{ appointment.car_number }}<br>
+                            {% endif %}
+                            <strong>{% trans "Статус записи:" %}</strong> {{ appointment.get_status_display }}<br>
+                        </p>
+                    </div>
+
+                    {% if appointment.status == 'pending' %}
+                        <div class="appointment-card-footer">
+                            <form action="{% url 'services:appointment_update' appointment.id %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" name="action" value="accept" class="btn btn-success btn-sm">
+                                    {% trans "Принять запись" %}
+                                </button>
+                                <button type="submit" name="action" value="reject" class="btn btn-danger btn-sm">
+                                    {% trans "Отклонить запись" %}
+                                </button>
+                            </form>
+                        </div>
+                    {% endif %}
+
+                    {% if appointment.reschedulerequest_set.all %}
+                        <div class="reschedule-requests">
+                            <h5>{% trans "Запросы на перенос" %}</h5>
+                            {% for req in appointment.reschedulerequest_set.all %}
+                                <div class="reschedule-request-card">
+                                    <p>
+                                        <strong>{% trans "Новая дата и время:" %}</strong> {{ req.new_date_time }}<br>
+                                        <strong>{% trans "Комментарий:" %}</strong> {{ req.comment }}<br>
+                                        <strong>{% trans "Статус запроса:" %}</strong> {{ req.get_status_display }}
+                                    </p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                    <div class="appointment-card-footer">
+                        <a href="{% url 'services:reschedule_create' appointment.id %}" class="btn btn-warning btn-sm">
+                            {% trans "Предложить перенос" %}
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="no-appointments">{% trans "Нет записей." %}</p>
+    {% endif %}
+</div>
+{% endblock content %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/master_appointments.css' %}">
+{% endblock extra_css %}

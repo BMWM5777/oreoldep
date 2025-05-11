@@ -1,0 +1,71 @@
+{% extends 'main/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Корзина" %}{% endblock title %}
+
+{% block content %}
+<section class="cart d-flex flex-column">
+    <div class="cart-title">
+        <h2>{% trans "Корзина покупок" %}</h2>
+    </div>
+    <div class="cart-cards">
+        {% for item in cart %}
+            {% with product=item.product %}
+                <div class="cart-card d-flex align-items-center">
+                    <div class="cart-card-img">
+                        <a href="{% url 'main:product_detail' product.slug %}">
+                            <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/noimage.jpg' %}{% endif %}" alt="">
+                        </a>
+                    </div>
+                    <div class="cart-card-info flex-grow-1">
+                        <div class="cart-card-name">
+                            <a href="{% url 'main:product_detail' product.slug %}">{{ product.name }}</a>
+                        </div>
+                        <div class="cart-card-qty">
+                            <span class="qty-label">{% trans "Количество" %}:</span>
+                            <form action="{% url 'cart:cart_update' product.id %}" method="post" class="quantity-form">
+                                {% csrf_token %}
+                                <button type="submit" name="action" value="decrement" class="qty-btn qty-minus">–</button>
+                                <span class="qty-display">{{ item.quantity }}</span>
+                                <button type="submit" name="action" value="increment" class="qty-btn qty-plus">+</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="cart-card-price text-end">
+                        {% if product.discount %}
+                            <div class="cart-discount d-flex justify-content-end gap-2">
+                                <p class="old-price"> {{ product.price }} KZT</p>
+                                <p class="new-price"> {{ product.sell_price }} KZT</p>
+                            </div>
+                        {% else %}
+                            <p class="price mt-3"> {{ product.price }} KZT</p>
+                        {% endif %}
+                    </div>
+                    <div class="cart-card-remove">
+                        <form action="{% url 'cart:cart_remove' product.id %}" method="post">
+                            {% csrf_token %}
+                            <input type="submit" value="{% trans 'Удалить' %}" class="remove-btn">
+                        </form>
+                    </div>
+                </div>
+            {% endwith %}
+        {% endfor %}
+    </div>
+    <div class="total">
+        <h5>{% trans "Общая сумма" %}: {{ cart.get_total_price }} KZT</h5>
+    </div>
+    <div class="cart-buttons d-flex gap-3">
+        <a href="/shop" class="cart-btn">{% trans "Продолжить покупки" %}</a>
+        {% with cart_quantity=cart|length %}
+            {% if cart_quantity > 0 %}
+                <a href="{% url 'orders:order_create' %}" class="cart-btn">{% trans "Продолжить" %}</a>
+            {% endif %}
+        {% endwith %}
+    </div>
+</section>
+{% endblock content %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/cart-detail.css' %}">
+{% endblock extra_css %}

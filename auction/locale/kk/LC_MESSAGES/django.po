@@ -1,0 +1,69 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-16 14:58+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+#: .\auction\templates\auction\auction_list.html:3
+msgid "Список аукционов"
+msgstr "Аукциондар тізімі"
+
+#: .\auction\templates\auction\auction_list.html:12
+msgid "Лоты аукциона"
+msgstr "Аукцион лоттары"
+
+#: .\auction\templates\auction\auction_list.html:15
+msgid "Админ Дэшборд"
+msgstr "Әкімші тақтасы"
+
+#: .\auction\templates\auction\auction_list.html:18
+#: .\auction\templates\auction\auction_list.html:21
+#: .\auction\templates\auction\create_auction.html:3
+msgid "Создать лот"
+msgstr "Лот жасау"
+
+#: .\auction\templates\auction\auction_list.html:19
+msgid "Мои лоты"
+msgstr "Менің лоттарым"
+
+#: .\auction\templates\auction\auction_list.html:36
+msgid "Текущая цена"
+msgstr "Қазіргі баға"
+
+#: .\auction\templates\auction\auction_list.html:40
+msgid "Подробнее"
+msgstr "Толығырақ"
+
+#: .\auction\templates\auction\auction_list.html:47
+msgid "Нет активных лотов."
+msgstr "Белсенді лоттар жоқ."
+
+#: .\auction\templates\auction\create_auction.html:8
+msgid "Создать новый лот"
+msgstr "Жаңа лот жасау"
+
+#: .\auction\templates\auction\create_auction.html:14
+msgid "Основная информация"
+msgstr "Негізгі ақпарат"
+
+#: .\auction\templates\auction\create_auction.html:21
+msgid "Дополнительные фотографии"
+msgstr "Қосымша фотосуреттер"
+
+#: .\auction\templates\auction\create_auction.html:35
+msgid "Отправить на модерацию"
+msgstr "Модерацияға жіберу"
+

@@ -1,0 +1,132 @@
+{% extends 'main/base.html' %}
+{% load i18n %}
+{% load static %}
+{% block title %}{% trans "Запись на услугу" %}{% endblock title %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/appointment_form.css' %}">
+  <link rel="stylesheet" href="{% static 'css/master_appointments_calendar.css' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+{% endblock extra_css %}
+
+{% block content %}
+<div class="appointment-container">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <div class="appointment-card">
+        <div class="appointment-card-header bg-primary text-white">
+          <h3 class="mb-0">{% trans "Записаться на услугу" %}: {{ service.name }}</h3>
+        </div>
+        <div class="appointment-card-body">
+          {% if messages %}
+            <div class="messages">
+              {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+          
+          <form action="" method="post" id="appointment-form">
+            {% csrf_token %}
+            <input type="hidden" name="date_time" id="selected-datetime">
+            
+            <div class="form-group">
+              <label>{% trans "Выберите дату" %}:</label>
+              <div id="calendar"></div>
+            </div>
+            
+            <div class="form-group">
+              <label>{% trans "Свободные слоты" %}:</label>
+              <div id="free-slots-container">
+              </div>
+            </div>
+            
+            <div class="appointment-form-group">
+              {{ form.car_brand.label_tag }}
+              {{ form.car_brand }}
+              {{ form.car_brand.errors }}
+            </div>
+            <div class="appointment-form-group">
+              {{ form.car_year.label_tag }}
+              {{ form.car_year }}
+              {{ form.car_year.errors }}
+            </div>
+            <div class="appointment-form-group">
+              {{ form.car_number.label_tag }}
+              {{ form.car_number }}
+              {{ form.car_number.errors }}
+            </div>
+            <div class="appointment-form-group">
+              {{ form.vin_code.label_tag }}
+              {{ form.vin_code }}
+              {{ form.vin_code.errors }}
+            </div>
+            
+            <button type="submit" class="btn appointment-btn-primary">
+              {% trans "Отправить заявку" %}
+            </button>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+
+{% block extra_js %}
+  {% comment %} <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> {% endcomment %}
+  <script src="{% static 'bootstrap/js/jquery-3.6.0.min.js' %}"></script>
+  <script src="{% static 'libs/fullcalendar/index.global.min.js' %}"></script>
+  {% if LANGUAGE_CODE == "ru" %}
+    <script src="{% static 'libs/fullcalendar/locales/ru.global.min.js' %}"></script>
+  {% elif LANGUAGE_CODE == "kk" %}
+    <script src="{% static 'libs/fullcalendar/locales/kk.global.min.js' %}"></script>
+  {% endif %}
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var selectedDay = null;
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth',
+          locale: "{{ LANGUAGE_CODE }}",
+          selectable: true,
+          dateClick: function(info) {
+              selectedDay = info.dateStr;
+              $.ajax({
+                  url: "{% url 'services:available_slots' service.id %}",
+                  data: { day: selectedDay },
+                  dataType: "json",
+                  success: function(data) {
+                      var container = $('#free-slots-container');
+                      container.empty();
+                      if (data.slots && data.slots.length > 0) {
+                          data.slots.forEach(function(slot) {
+                              var slotBtn = $('<button type="button" class="btn btn-outline-primary free-slot-btn">' + slot + '</button>');
+
+                              slotBtn.on('click', function() {
+                                  var chosenDateTime = selectedDay + 'T' + slot + ':00';
+                                  $('#selected-datetime').val(chosenDateTime);
+                                  $('.free-slot-btn').removeClass('active');
+                                  slotBtn.addClass('active');
+                                  console.log("Выбранное время:", $('#selected-datetime').val());
+                              });
+                              container.append(slotBtn);
+                          });
+                      } else {
+                          container.html('<p>{% trans "Нет свободных слотов на эту дату. Выберите другой день." %}</p>');
+                      }
+                  },
+                  error: function() {
+                      $('#free-slots-container').html('<p>{% trans "Ошибка при получении доступных слотов." %}</p>');
+                  }
+              });
+          }
+      });
+      calendar.render();
+    });
+  </script>
+{% endblock extra_js %}

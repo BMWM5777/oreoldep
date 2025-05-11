@@ -1,0 +1,82 @@
+{% extends 'main/base.html' %}
+{% load i18n static %}
+
+{% block title %}{% trans "Услуги" %}{% endblock title %}
+
+{% block content %}
+<section class="services-section">
+    <div class="services-container">
+        <h2 class="services-title mb-4">{% trans "Наши услуги" %}</h2>
+
+        <div class="services-top d-flex justify-content-between align-items-center mb-4 flex-wrap">
+            <div class="categories-container mb-3">
+                {% if categories %}
+                    <div class="categories">
+                        <h4>{% trans "Категории" %}</h4>
+                        <ul class="list-inline">
+                            <li {% if not selected_category %}class="selected"{% endif %}>
+                                <a href="{% url 'services:service_list' %}">
+                                    {% trans "Все" %}
+                                </a>
+                            </li>
+                            {% for category in categories %}
+                                <li {% if selected_category and selected_category.slug == category.slug %}class="selected"{% endif %}>
+                                    <a href="{% if category.slug %}{% url 'services:service_list_by_category' category.slug %}{% else %}#{% endif %}">
+                                        {{ category.name }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+            
+            <div class="buttons-container mb-3">
+                <a href="{% url 'services:client_appointments' %}" class="btn my-records-btn mb-2">
+                    {% trans "Мои записи на услуги" %}
+                </a>
+                {% if user.is_authenticated and user.role == 'master' %}
+                    <a href="{% url 'services:master_appointments' %}" class="btn btn-outline-primary">
+                        {% trans "Записи моих услуг" %}
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if services %}
+            <div class="row">
+                {% for service in services %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card service-card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ service.name }}</h5>
+                                <p class="card-text">{{ service.description|truncatewords:20 }}</p>
+                                <p class="mb-1">
+                                    <strong>{% trans "Цена:" %}</strong> {{ service.price }} <strong>KZT</strong>
+                                </p>
+                                <p class="mb-1">
+                                    <strong>{% trans "Время:" %}</strong> {{ service.duration }}
+                                </p>
+                                <p class="mb-1">
+                                    <strong>{% trans "Мастер:" %}</strong> {{ service.master.get_full_name }}
+                                </p>
+                            </div>
+                            <div class="card-footer bg-white">
+                                <a href="{% url 'services:appointment_create' service.id %}" class="btn service-btn">
+                                    {% trans "Записаться" %}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-center">{% trans "Услуг пока нет." %}</p>
+        {% endif %}
+    </div>
+</section>
+{% endblock content %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/service_list.css' %}">
+{% endblock extra_css %}

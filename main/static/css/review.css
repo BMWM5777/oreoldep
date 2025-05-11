@@ -1,0 +1,94 @@
+.review-form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.review-form-container h2 {
+    font-size: 26px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.review-form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.review-form-container textarea,
+.review-form-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.review-form-container textarea {
+    height: 120px;
+    resize: none;
+}
+
+.review-form-container button {
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.review-form-container button:hover {
+    background: #0056b3;
+}
+
+.review-form-container .btn-secondary {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+    color: #007bff;
+    background: none;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.review-form-container .btn-secondary:hover {
+    background: #007bff;
+    color: white;
+}
+
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    font-size: 30px;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    color: #ddd;
+    transition: color 0.3s ease-in-out;
+}
+
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: gold;
+}

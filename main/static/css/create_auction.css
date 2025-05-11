@@ -1,0 +1,226 @@
+/* ===================== Анимация и базовый фон ===================== */
+.auction-create-section {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* ===================== Основной контейнер ===================== */
+  .auction-create-container {
+    width: 100%;
+    max-width: 1000px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+  
+  .auction-create-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+  }
+  
+  .auction-create-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  /* ===================== Fieldset и Legend ===================== */
+  .auction-fieldset {
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    margin: 0;
+    clear: both;
+  }
+  
+  .auction-legend {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #6200ea;
+    padding: 0 5px;
+    margin-bottom: 1rem;
+  }
+  
+  /* ===================== Основные поля (auction-main-grid) ===================== */
+  .auction-main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* две колонки, если экран позволяет */
+    gap: 1rem 2rem; /* row-gap=1rem, column-gap=2rem */
+  }
+  
+  .auction-main-grid p {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  
+  /* Метка */
+  .auction-main-grid label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #444;
+    font-size: 0.95rem;
+  }
+  
+  /* Поля ввода: ширина 100%, чтобы не вылезали */
+  .auction-main-grid input[type="text"],
+  .auction-main-grid input[type="number"],
+  .auction-main-grid input[type="file"],
+  .auction-main-grid select,
+  .auction-main-grid textarea {
+    width: 100%; /* важный момент */
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 0.5rem;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box; /* чтобы padding не увеличивал реальную ширину */
+  }
+  
+  .auction-main-grid input:focus,
+  .auction-main-grid select:focus,
+  .auction-main-grid textarea:focus {
+    border-color: #6200ea;
+    outline: none;
+  }
+  
+  /* ===================== Дополнительные фотографии ===================== */
+  .auction-photos-flex {
+    display: flex;
+    flex-wrap: wrap; /* Перенос строк при нехватке места */
+    gap: 1rem;
+    width: 100%; /* занимаем всю ширину */
+    clear: both;
+  }
+  
+  .auction-photo-card {
+    flex: 1 1 280px; /* минимальная ширина ~280px, может расширяться */
+    max-width: 350px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #f9f9f9;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+  
+  /* Поля внутри карточки фото */
+  .auction-photo-card p {
+    margin: 0 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .auction-photo-card label {
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #444;
+    font-size: 0.9rem;
+  }
+  
+  .auction-photo-card input[type="file"] {
+    width: 100%; /* чтобы не вылезало */
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 0.4rem;
+    font-size: 0.9rem;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+  }
+  
+  .auction-photo-card input[type="file"]:focus {
+    border-color: #6200ea;
+    outline: none;
+  }
+  
+  /* ===================== Кнопка отправки ===================== */
+  .auction-create-submit-container {
+    text-align: center;
+  }
+  
+  .auction-create-submit {
+    background-color: #6200ea;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .auction-create-submit:hover {
+    background-color: #4500a8;
+    transform: translateY(-2px);
+  }
+
+  .add-photo-button {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 6px 12px;
+    font-size: 1.5rem;
+    background-color: #6200ea;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 28px;
+  }
+  
+  .add-photo-button:hover {
+    background-color: #4500a8;
+  }
+  
+  /* ===================== Адаптивность ===================== */
+  @media (max-width: 768px) {
+    /* Основные поля: 1 колонка */
+    .auction-main-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem; /* уменьшим gap */
+    }
+  
+    /* Уменьшаем отступы контейнера */
+    .auction-create-container {
+      padding: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .auction-create-container {
+      padding: 1rem;
+    }
+    .auction-create-title {
+      font-size: 1.6rem;
+    }
+    .auction-legend {
+      font-size: 1rem;
+    }
+    .auction-create-submit {
+      font-size: 0.9rem;
+      padding: 0.6rem 1rem;
+    }
+  
+    /* Поля ещё чуть компактнее */
+    .auction-main-grid p {
+      margin-bottom: 0.75rem;
+    }
+  }
+  

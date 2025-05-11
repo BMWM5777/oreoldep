@@ -1,0 +1,63 @@
+{% extends 'main/base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Календарь записей" %}{% endblock title %}
+
+{% block content %}
+<div class="calendar-page">
+  <header class="calendar-header">
+    <h1>{% trans "Календарь записей" %}</h1>
+    <div class="calendar-controls">
+      <a href="{% url 'services:master_appointments' %}" class="btn btn-secondary">{% trans "Список записей" %}</a>
+    </div>
+  </header>
+  <main class="calendar-main">
+    <div id="calendar"></div>
+  </main>
+</div>
+{% endblock content %}
+
+{% block extra_js %}
+  <script src="{% static 'libs/fullcalendar/index.global.min.js' %}"></script>
+  
+  {% if LANGUAGE_CODE == "ru" %}
+    <script src="{% static 'libs/fullcalendar/locales/ru.global.min.js' %}"></script>
+  {% elif LANGUAGE_CODE == "kk" %}
+    <script src="{% static 'libs/fullcalendar/locales/kk.global.min.js' %}"></script>
+  {% endif %}
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var events = {{ events_json|safe }};
+      
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        locale: "{{ LANGUAGE_CODE }}",
+        headerToolbar: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        buttonText: {
+          today:   '{{ _("Today") }}',
+          month:   '{{ _("Month") }}',
+          week:    '{{ _("Week") }}',
+          day:     '{{ _("Day") }}'
+        },
+        events: events,
+        eventClick: function(info) {
+          window.location.href = info.event.url;
+          info.jsEvent.preventDefault();
+        }
+      });
+      
+      calendar.render();
+    });
+  </script>
+{% endblock extra_js %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/master_appointments_calendar.css' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+{% endblock extra_css %}

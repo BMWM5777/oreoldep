@@ -1,0 +1,147 @@
+.appointment-detail-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.appointment-detail-container {
+    max-width: 900px;
+    width: 100%;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    padding: 2rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.appointment-detail-card {
+    background-color: #fff;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.appointment-detail-card:hover {
+    border-color: #6200ea;
+    transform: translateY(-2px);
+}
+
+.appointment-detail-header {
+    background-color: #6200ea;
+    color: #fff;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.appointment-detail-body {
+    padding: 1rem;
+}
+
+.appointment-service-name {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #6200ea;
+    margin-bottom: 0.8rem;
+}
+
+.appointment-info {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #555;
+}
+
+.appointment-info strong {
+    color: #333;
+}
+
+.reschedule-requests-container {
+    margin-top: 1rem;
+}
+
+.reschedule-title {
+    font-size: 1.2rem;
+    color: #6200ea;
+    margin-bottom: 0.5rem;
+}
+
+.reschedule-request-card {
+    background-color: #f9f9f9;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.reschedule-request-card:hover {
+    border-color: #6200ea;
+    transform: translateY(-2px);
+}
+
+.reschedule-request-card form {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.no-reschedule-requests {
+    text-align: center;
+    color: #888;
+    margin-top: 1rem;
+}
+
+.return-link-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.return-link-container .btn {
+    font-size: 0.95rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .appointment-detail-container {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+    .appointment-detail-header {
+        font-size: 1.1rem;
+    }
+    .appointment-service-name {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .appointment-detail-header {
+        font-size: 1rem;
+        padding: 0.75rem;
+    }
+    .appointment-service-name {
+        font-size: 1rem;
+    }
+    .appointment-info {
+        font-size: 0.9rem;
+    }
+}

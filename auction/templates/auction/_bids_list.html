@@ -1,0 +1,17 @@
+{% load censor %}
+
+<ul class="auction-detail-history-list">
+    {% for bid in bids %}
+        <li class="auction-detail-history-item">
+            <strong>{{ bid.bidder.username|censor_username }}</strong> поставил 
+            <strong>{{ bid.bid_amount|floatformat:2 }} тенге.</strong>
+            <small class="auction-detail-history-date">
+                {{ bid.timestamp|date:"d.m.Y H:i" }}
+            </small>
+        </li>
+    {% empty %}
+        <li class="auction-detail-history-item no-bids">
+            Пока ставок нет.
+        </li>
+    {% endfor %}
+</ul>

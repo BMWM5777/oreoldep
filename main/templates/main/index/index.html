@@ -1,0 +1,252 @@
+{% extends "main/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Дом" %}{% endblock title %}
+
+{% block content %}
+<body class="page-index">
+
+  <div class="header1 fade-in">
+      <img src="{% static 'img/headerphoto.jpg' %}" alt="СТО">
+      <div class="header1-text">
+          <h2>{% trans "Добро пожаловать в автосервис «Ореол»" %}</h2>
+          <p>{% trans "Мы предлагаем широкий спектр услуг по ремонту и обслуживанию автомобилей." %}</p>
+      </div>
+  </div>
+
+  <section class="home d-flex flex-column fade-in">
+      <div class="home-title d-flex flex-column align-items-center">
+          <!-- чёт хотел добавить забыл лан ахах -->
+      </div>
+      <div class="home-recomendation fade-in">
+          <div class="rec-title mb-4">
+              <h2><span>{% trans "Новые товары" %}</span></h2>
+          </div>
+      </div>
+      <div class="home-cards d-flex gap-4 fade-in">
+          {% for product in products %}
+          <div class="home-card-container">
+              <a href="{{ product.get_absolute_url }}" class="home-card d-flex flex-column align-items-center text-center">
+                  <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/noimage.jpg' %}{% endif %}" class="card-img" alt="">
+                  <h5 class="title-card">{{ product.name }}</h5>
+                  {% if product.discount %}
+                      <div class="card-discount d-flex gap-6">
+                          <p class="line">{{ product.price }} KZT</p>
+                          <p>{{ product.sell_price }} KZT</p>
+                      </div>
+                  {% else %}
+                      <p class="price">{{ product.price }} KZT</p>
+                  {% endif %}
+              </a>
+              {% if user.is_authenticated and product.id %}
+              <form action="{% url 'favorites:add_to_favorites' product.id %}" method="post" class="card-fav-form">
+                  {% csrf_token %}
+                  <button type="submit" class="card-fav-button">
+                      {% if product.id in favorite_product_ids %}
+                          <i class="fa fa-star fav-active"></i>
+                      {% else %}
+                          <i class="fa fa-star"></i>
+                      {% endif %}
+                  </button>
+              </form>
+              {% endif %}
+          </div>
+          {% endfor %}
+      </div>
+  </section>
+
+  <section class="about-us fade-in" id="about">
+      <h2>{% trans "О нас" %}</h2>
+      <div class="about-content">
+          <p>{% trans "Автосервисный комплекс" %} <strong>"{% trans "Ореол" %}"</strong> – {% trans "это место, где ваш автомобиль получает профессиональный уход и качественное обслуживание. Мы работаем уже много лет, сохраняя безупречную репутацию и высокие стандарты качества." %}</p>
+          <div class="about-grid">
+              <div class="about-item">
+                  <img src="{% static 'img/assets/paint.png' %}" alt="Малярные работы">
+                  <h3>{% trans "Малярные работы" %}</h3>
+                  <p>{% trans "Профессиональная покраска, восстановление кузова, удаление сколов и царапин. Используем только качественные материалы и современные технологии." %}</p>
+              </div>
+              <div class="about-item">
+                  <img src="{% static 'img/assets/service.png' %}" alt="Автосервис">
+                  <h3>{% trans "Автосервис" %}</h3>
+                  <p>{% trans "Диагностика, ремонт и техническое обслуживание автомобилей любой сложности. Наши мастера оперативно решат любые проблемы." %}</p>
+              </div>
+              <div class="about-item">
+                  <img src="{% static 'img/assets/oil.png' %}" alt="Замена масла">
+                  <h3>{% trans "Замена масла" %}</h3>
+                  <p>{% trans "Быстрая и качественная замена моторного масла с учетом рекомендаций производителя. Используем только проверенные масла." %}</p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="services fade-in">
+      <h2>{% trans "Наши услуги" %}</h2>
+      <div class="swiper-container services-carousel">
+          <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                  <div class="service-card fade-in">
+                      <img src="{% static 'img/assets/service1.jpg' %}" alt="Услуга 1">
+                      <h3>{% trans "Покраска авто" %}</h3>
+                      <p>{% trans "Полная и частичная покраска автомобилей с гарантией качества." %}</p>
+                      <a href="{% url 'services:service_list' %}" class="service-btn">{% trans "Подробнее" %}</a>
+                  </div>
+              </div>
+              <div class="swiper-slide">
+                  <div class="service-card fade-in">
+                      <img src="{% static 'img/assets/service2.jpg' %}" alt="Услуга 2">
+                      <h3>{% trans "Замена масла" %}</h3>
+                      <p>{% trans "Профессиональная замена масла с использованием качественных материалов." %}</p>
+                      <a href="{% url 'services:service_list' %}" class="service-btn">{% trans "Подробнее" %}</a>
+                  </div>
+              </div>
+              <div class="swiper-slide">
+                  <div class="service-card fade-in">
+                      <img src="{% static 'img/assets/service3.jpg' %}" alt="Услуга 3">
+                      <h3>{% trans "Ремонт двигателя" %}</h3>
+                      <p>{% trans "Диагностика и ремонт двигателей любой сложности." %}</p>
+                      <a href="{% url 'services:service_list' %}" class="service-btn">{% trans "Подробнее" %}</a>
+                  </div>
+              </div>
+              <div class="swiper-slide">
+                  <div class="service-card fade-in">
+                      <img src="{% static 'img/assets/service4.jpg' %}" alt="Услуга 4">
+                      <h3>{% trans "Шиномонтаж" %}</h3>
+                      <p>{% trans "Балансировка, правка дисков и замена шин." %}</p>
+                      <a href="{% url 'services:service_list' %}" class="service-btn">{% trans "Подробнее" %}</a>
+                  </div>
+              </div>
+              <div class="swiper-slide">
+                  <div class="service-card fade-in">
+                      <img src="{% static 'img/assets/service5.jpg' %}" alt="Услуга 5">
+                      <h3>{% trans "Компьютерная диагностика" %}</h3>
+                      <p>{% trans "Современное оборудование для выявления неисправностей." %}</p>
+                      <a href="{% url 'services:service_list' %}" class="service-btn">{% trans "Подробнее" %}</a>
+                  </div>
+              </div>
+              <div class="swiper-slide">
+                  <div class="service-card fade-in">
+                      <img src="{% static 'img/assets/service6.jpg' %}" alt="Услуга 6">
+                      <h3>{% trans "Ходовая часть" %}</h3>
+                      <p>{% trans "Ремонт и замена элементов подвески." %}</p>
+                      <a href="{% url 'services:service_list' %}" class="service-btn">{% trans "Подробнее" %}</a>
+                  </div>
+              </div>
+          </div>
+        <div class="swiper-button-prev">
+            <span class="arrow-icon"><i class="fa fa-chevron-left"></i></span>
+            <span class="tool-icon"><i class="fas fa-fill-drip"></i></span>
+        </div>
+        <div class="swiper-button-next">
+            <span class="tool-icon"><i class="fas fa-wrench"></i></span>
+            <span class="arrow-icon"><i class="fa fa-chevron-right"></i></span>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+  </section>
+
+  <section class="why-choose-us fade-in">
+      <h2>{% trans "Почему выбирают нас?" %}</h2>
+      <div class="swiper-container why-carousel">
+          <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                  <div class="why-item">
+                      <img src="{% static 'img/assets/experience.jpg' %}" alt="Опыт и надежность">
+                      <h3>{% trans "Опыт и надежность" %}</h3>
+                      <p>{% trans "Десятки лет работы, тысячи довольных клиентов и безупречная репутация." %}</p>
+                  </div>
+              </div>
+              <div class="swiper-slide">
+                  <div class="why-item">
+                      <img src="{% static 'img/assets/quality.jpg' %}" alt="Качество и технологии">
+                      <h3>{% trans "Качество и технологии" %}</h3>
+                      <p>{% trans "Современные материалы, передовое оборудование и профессиональные мастера." %}</p>
+                  </div>
+              </div>
+              <div class="swiper-slide">
+                  <div class="why-item">
+                      <img src="{% static 'img/assets/transparency.jpg' %}" alt="Честность и прозрачность">
+                      <h3>{% trans "Честность и прозрачность" %}</h3>
+                      <p>{% trans "Никакого навязанного ремонта и скрытых платежей. Вы всегда знаете, за что платите." %}</p>
+                  </div>
+              </div>
+              <div class="swiper-slide">
+                  <div class="why-item">
+                      <img src="{% static 'img/assets/warranty.jpg' %}" alt="Гарантия на работы">
+                      <h3>{% trans "Гарантия на работы" %}</h3>
+                      <p>{% trans "Уверены в качестве и предоставляем гарантию на все виды услуг." %}</p>
+                  </div>
+              </div>
+              <div class="swiper-slide">
+                  <div class="why-item">
+                      <img src="{% static 'img/assets/speed.jpg' %}" alt="Удобство и скорость">
+                      <h3>{% trans "Удобство и скорость" %}</h3>
+                      <p>{% trans "Оперативно обслуживаем ваш автомобиль, экономя ваше время." %}</p>
+                  </div>
+              </div>
+          </div>
+          <div class="swiper-button-prev">
+            <span class="arrow-icon"><i class="fa fa-chevron-left"></i></span>
+            <span class="tool-icon"><i class="fas fa-fill-drip"></i></span>
+        </div>
+        <div class="swiper-button-next">
+            <span class="tool-icon"><i class="fas fa-wrench"></i></span>
+            <span class="arrow-icon"><i class="fa fa-chevron-right"></i></span>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+  </section>
+
+  <section class="reviews fade-in">
+      <h2>{% trans "Отзывы клиентов" %}</h2>
+      <div class="reviews-container">
+          {% for review in reviews %}
+          <div class="review-box">
+              <div class="review-header">
+                  {% if review.user.image %}
+                      <img src="{{ review.user.image.url }}" alt="Аватар пользователя" class="avatar">
+                  {% else %}
+                      <img src="{% static 'img/noimage.jpg' %}" alt="Нет аватара" class="avatar">
+                  {% endif %}
+                  <p><strong>{{ review.user.username }}</strong></p>
+              </div>            
+              <div class="stars">
+                  {% for _ in "x"|rjust:review.rating %}
+                      <i class="fas fa-star"></i>
+                  {% endfor %}
+              </div>
+              <p>{{ review.text }}</p>
+              <small>{% trans "Дата" %}: {{ review.created_at|date:"d.m.Y H:i" }}</small>
+          </div>
+          {% empty %}
+          <p>{% trans "Пока нет отзывов. Будьте первым!" %}</p>
+          {% endfor %}
+      </div>
+
+      {% if user.is_authenticated %}
+      <div class="review-form">
+          <h3>Оставьте свой отзыв</h3>
+          <a href="{% url 'reviews:add_review' %}" class="btn btn-primary">Добавить отзыв</a>
+      </div>
+      {% else %}
+      <p>
+          <a href="{% url 'users:login' %}" class="login-link">Войдите в аккаунт</a>, чтобы оставить отзыв.
+      </p>
+      {% endif %}
+  </section>
+
+</body>
+{% endblock content %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/reviews.css' %}">
+    <link rel="stylesheet" href="{% static 'swiper/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'swiper/custom-swiper.css' %}">
+{% endblock extra_css %}
+
+{% block extra_js %}
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>    
+{% endblock extra_js %}

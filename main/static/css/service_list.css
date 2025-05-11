@@ -1,0 +1,170 @@
+.services-section {
+    padding: 3rem 1rem;
+}
+
+.services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.services-title {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #333;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.services-top {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.categories {
+    margin-bottom: 1rem;
+}
+
+.categories h4 {
+    font-size: 1.5rem;
+    color: #6200ea;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.categories ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.categories ul li {
+    margin: 0;
+}
+
+.categories ul li a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #555;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+.categories ul li.selected a,
+.categories ul li a:hover {
+    background: #6200ea;
+    color: #fff;
+    border-color: #6200ea;
+}
+
+.buttons-container a.btn {
+    min-width: 200px;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.row {
+    margin: 0 -0.75rem;
+}
+
+.col-md-4 {
+    padding: 0 0.75rem;
+}
+
+.service-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.12);
+    border-color: transparent;
+}
+
+.service-card .card-body {
+    padding: 1.5rem;
+}
+
+.service-card .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.service-card .card-text {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.service-card p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.service-card .card-footer {
+    padding: 1.25rem;
+    background: #fff;
+    border-top: 1px solid #eee;
+    text-align: center;
+}
+
+.service-btn {
+    display: inline-block;
+    padding: 0.65rem 1.5rem;
+    font-size: 1rem;
+    color: #fff;
+    background: #6200ea;
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.service-btn:hover {
+    background: #4e00d6;
+}
+
+.btn.my-records-btn {
+    background-color: #343a40; /* глубокий, солидный тёмно-серый цвет */
+    color: #fff;               /* белый текст */
+    border: none;              /* убрать рамку */
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn.my-records-btn:hover {
+    background-color: #23272b; /* ещё более глубокий оттенок при наведении */
+  }
+
+@media (max-width: 768px) {
+    .services-title {
+        font-size: 2rem;
+    }
+    .services-top {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .categories ul {
+        justify-content: center;
+    }
+    .buttons-container {
+        text-align: center;
+    }
+}

@@ -1,0 +1,206 @@
+{% extends 'main/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Регистрация" %}{% endblock title %}
+
+{% block content %}
+<section class="reg-section">
+    <div class="reg-container">
+        <div class="reg-illustration">
+            <img src="{% static 'img/reg-car-service.png' %}" alt="Car Service" class="reg-image">
+            <div class="reg-overlay">
+                <h3 class="reg-tagline">{% trans "Присоединяйтесь к нашему сервису" %}</h3>
+                <p class="reg-subtext">{% trans "Станьте частью профессионального автомобильного сообщества" %}</p>
+            </div>
+        </div>
+        
+        <div class="reg-content">
+            <div class="reg-header">
+                <img src="{% static 'img/logo.png' %}" alt="Logo" class="reg-logo">
+                <h1 class="reg-title">{% trans "Создание аккаунта" %}</h1>
+            </div>
+
+            {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="message {{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if form.non_field_errors %}
+            <div class="error-list">
+                {% for error in form.non_field_errors %}
+                    <p class="error">{{ error }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <form class="reg-form" method="post" action="{% url "user:registration" %}">
+                {% csrf_token %}
+                
+                <div class="reg-form-grid">
+                    <div class="reg-form-group">
+                        <label for="id_first_name" class="reg-form-label">
+                            <i class="fas fa-user reg-icon"></i>
+                            {% trans "Имя" %}
+                        </label>
+                        <input type="text" 
+                               class="reg-form-control" 
+                               id="id_first_name"
+                               name="first_name"
+                               placeholder="{% trans "Введите ваше имя" %}"
+                               required
+                               autofocus
+                               value="{{ form.first_name.value|default_if_none:'' }}">
+                        {% if form.first_name.errors %}
+                        <div class="field-errors">
+                            {% for error in form.first_name.errors %}
+                                <p class="error">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="reg-form-group">
+                        <label for="id_last_name" class="reg-form-label">
+                            <i class="fas fa-users reg-icon"></i>
+                            {% trans "Фамилия" %}
+                        </label>
+                        <input type="text" 
+                               class="reg-form-control" 
+                               id="id_last_name"
+                               name="last_name"
+                               placeholder="{% trans "Введите вашу фамилию" %}"
+                               required
+                               value="{{ form.last_name.value|default_if_none:'' }}">
+                        {% if form.last_name.errors %}
+                        <div class="field-errors">
+                            {% for error in form.last_name.errors %}
+                                <p class="error">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="reg-form-group">
+                        <label for="id_username" class="reg-form-label">
+                            <i class="fas fa-at reg-icon"></i>
+                            {% trans "Имя пользователя" %}
+                        </label>
+                        <input type="text" 
+                               class="reg-form-control" 
+                               id="id_username"
+                               name="username"
+                               placeholder="{% trans "Придумайте логин" %}"
+                               required
+                               value="{{ form.username.value|default_if_none:'' }}">
+                        {% if form.username.errors %}
+                        <div class="field-errors">
+                            {% for error in form.username.errors %}
+                                <p class="error">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="reg-form-group">
+                        <label for="id_email" class="reg-form-label">
+                            <i class="fas fa-envelope reg-icon"></i>
+                            {% trans "Электронная почта" %}
+                        </label>
+                        <input type="email" 
+                               class="reg-form-control" 
+                               id="id_email"
+                               name="email"
+                               placeholder="{% trans "oreol.kz@mail.ru" %}"
+                               required
+                               value="{{ form.email.value|default_if_none:'' }}">
+                        {% if form.email.errors %}
+                        <div class="field-errors">
+                            {% for error in form.email.errors %}
+                                <p class="error">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="reg-form-group">
+                        <label for="id_password1" class="reg-form-label">
+                            <i class="fas fa-lock reg-icon"></i>
+                            {% trans "Пароль" %}
+                        </label>
+                        <div class="reg-password-wrapper">
+                            <input type="password" 
+                                   class="reg-form-control" 
+                                   id="id_password1"
+                                   name="password1"
+                                   placeholder="{% trans "Не менее 8 символов" %}"
+                                   required>
+                            <button type="button" class="reg-password-toggle">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        {% if form.password1.errors %}
+                        <div class="field-errors">
+                            {% for error in form.password1.errors %}
+                                <p class="error">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="reg-form-group">
+                        <label for="id_password2" class="reg-form-label">
+                            <i class="fas fa-lock reg-icon"></i>
+                            {% trans "Подтвердите пароль" %}
+                        </label>
+                        <div class="reg-password-wrapper">
+                            <input type="password" 
+                                   class="reg-form-control" 
+                                   id="id_password2"
+                                   name="password2"
+                                   placeholder="{% trans "Повторите ваш пароль" %}"
+                                   required>
+                            <button type="button" class="reg-password-toggle">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        {% if form.password2.errors %}
+                        <div class="field-errors">
+                            {% for error in form.password2.errors %}
+                                <p class="error">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <button type="submit" class="reg-primary-btn">
+                    <i class="fas fa-user-plus reg-btn-icon"></i>
+                    {% trans "Зарегистрироваться" %}
+                </button>
+
+                <div class="reg-links">
+                    <span class="reg-text">{% trans "Уже есть аккаунт?" %}</span>
+                    <a href="{% url 'user:login' %}" class="reg-link">
+                        <i class="fas fa-sign-in-alt reg-link-icon"></i>
+                        {% trans "Войти в систему" %}
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/registration.css' %}">
+{% endblock extra_css %}
+
+{% block extra_js %}
+<script src="{% static 'js/registration.js' %}"></script>
+{% endblock extra_js %}

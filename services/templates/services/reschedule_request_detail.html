@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Детали запроса на перенос" %}{% endblock title %}
+
+{% block content %}
+<div class="container my-4">
+    <h2 class="mb-4">{% trans "Детали запроса на перенос" %}</h2>
+    
+    <div class="card mb-4">
+        <div class="card-body">
+            <p>
+                <strong>{% trans "Новая дата и время:" %}</strong> {{ reschedule_request.new_date_time }}<br>
+                <strong>{% trans "Комментарий:" %}</strong> {{ reschedule_request.comment }}<br>
+                <strong>{% trans "Статус:" %}</strong> {{ reschedule_request.get_status_display }}
+            </p>
+        </div>
+    </div>
+    
+    {% if reschedule_request.status == 'pending' %}
+    <div class="d-flex gap-2">
+        <form method="post" action="">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="approve">
+            <button type="submit" class="btn btn-success">{% trans "Принять перенос" %}</button>
+        </form>
+        <form method="post" action="">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="reject">
+            <button type="submit" class="btn btn-danger">{% trans "Отклонить перенос" %}</button>
+        </form>
+    </div>
+    {% else %}
+        <p>{% trans "Действия с запросом завершены." %}</p>
+    {% endif %}
+    
+    <a href="{% url 'services:client_appointments' %}" class="btn btn-link mt-3">{% trans "Вернуться к записям" %}</a>
+</div>
+{% endblock content %}

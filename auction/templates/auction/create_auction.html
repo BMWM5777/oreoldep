@@ -1,0 +1,58 @@
+{% extends "main/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %}{% trans "Создать лот" %}{% endblock title %}
+
+{% block content %}
+<section class="auction-create-section">
+  <div class="auction-create-container">
+    <h2 class="auction-create-title">{% trans "Создать новый лот" %}</h2>
+
+    <form method="post" enctype="multipart/form-data" class="auction-create-form">
+      {% csrf_token %}
+
+      <fieldset class="auction-fieldset">
+        <legend class="auction-legend">{% trans "Основная информация" %}</legend>
+        <div class="auction-main-grid">
+          {{ form.as_p }}
+        </div>
+      </fieldset>
+
+      <fieldset class="auction-fieldset">
+        <legend class="auction-legend">{% trans "Дополнительные фотографии" %}</legend>
+        {{ formset.management_form }}
+        <div class="auction-photos-flex" data-form-prefix="{{ formset.prefix }}">
+          {% for subform in formset %}
+            <div class="auction-photo-card">
+              {{ subform.as_p }}
+            </div>
+          {% endfor %}
+        </div>
+        <button type="button" id="add-photo" class="add-photo-button">+</button>
+      </fieldset>
+
+      <div class="auction-create-submit-container">
+        <button type="submit" class="auction-create-submit">
+          {% trans "Отправить на модерацию" %}
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<div id="empty-form-template" style="display:none;">
+  <div class="auction-photo-card">
+    {{ formset.empty_form.as_p }}
+  </div>
+</div>
+
+{% endblock content %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/create_auction.css' %}">
+{% endblock extra_css %}
+
+{% block extra_js %}
+<script src="{% static 'js/create_auction.js' %}"></script>
+{% endblock extra_js %}
+

@@ -1,0 +1,43 @@
+{% extends "main/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/all_reviews.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+<div class="reviews-container">
+    <h2>{% trans "Отзывы клиентов" %}</h2>
+    <div class="reviews-list">
+    {% for review in reviews %}
+    <div class="review-box">
+        <div class="review-header">
+            {% if review.user.image %}
+                <img src="{{ review.user.image.url }}" alt="Аватар {{ review.user.username }}" class="avatar">
+            {% else %}
+                <img src="{% static 'img/noimage.jpg' %}" alt="Нет аватара" class="avatar">
+            {% endif %}
+            <p><strong>{{ review.user.username }}</strong></p>
+        </div>
+        <div class="stars">
+            {% for _ in "x"|rjust:review.rating %}
+                <i class="fas fa-star"></i>
+            {% endfor %}
+        </div>
+        <p>{{ review.text }}</p>
+        <small>{% trans "Дата" %}: {{ review.created_at|date:"d.m.Y H:i" }}</small>
+    </div>
+    {% empty %}
+        <p>{% trans "Пока нет отзывов. Будьте первым!" %}</p>
+    {% endfor %}
+    </div>
+    <div class="review-actions">
+        {% if user.is_authenticated %}
+            <a href="{% url 'reviews:add_review' %}" class="btn btn-primary">{% trans "Оставить отзыв" %}</a>
+        {% else %}
+            <p>{% trans "Войдите в аккаунт, чтобы оставить отзыв." %}</p>
+        {% endif %}
+        <a href="/" class="btn btn-secondary">{% trans "На главную" %}</a>
+    </div>   
+</div>
+{% endblock %}

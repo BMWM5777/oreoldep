@@ -1,0 +1,178 @@
+.appointments-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2rem;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.appointments-container {
+    max-width: 1200px;
+    width: 100%;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.appointments-header h2 {
+    text-align: center;
+    color: #1a1a1a;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.appointments-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+    max-height: 600px;
+}
+
+.appointments-list::-webkit-scrollbar {
+    width: 8px;
+}
+.appointments-list::-webkit-scrollbar-thumb {
+    background: #6200ea;
+    border-radius: 4px;
+}
+.appointments-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.appointment-card {
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+.appointment-card:hover {
+    border-color: #6200ea;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.appointment-card-header {
+    background: #6200ea;
+    color: #fff;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.appointment-service-name {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.appointment-card-body {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.appointment-card-footer {
+    text-align: right;
+    margin-top: 1rem;
+}
+
+.reschedule-requests h5 {
+    color: #6200ea;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.reschedule-request-card {
+    background: #fff;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.btn-sm {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.no-appointments {
+    text-align: center;
+    color: #888;
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+/* Фильтры */
+.filter-form {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Пагинация */
+.pagination {
+    margin: 20px 0;
+}
+
+.page-item.active .page-link {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.page-link {
+    color: #0d6efd;
+}
+
+@media (max-width: 768px) {
+    .appointments-container {
+        padding: 1rem;
+        margin: 1rem;
+    }
+
+    .appointments-header h2 {
+        font-size: 1.6rem;
+    }
+
+    .appointment-card {
+        padding: 0.8rem;
+    }
+    .appointment-card-header {
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+    }
+    .appointment-service-name {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .appointments-header h2 {
+        font-size: 1.4rem;
+    }
+    .appointment-card-body {
+        font-size: 0.9rem;
+    }
+    .reschedule-requests h5 {
+        font-size: 0.9rem;
+    }
+}

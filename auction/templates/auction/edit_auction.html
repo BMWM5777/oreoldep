@@ -1,0 +1,35 @@
+{% extends "main/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Редактировать лот" %}{% endblock title %}
+
+{% block content %}
+<div class="auction-edit-container">
+    <h2>{% trans "Редактирование лота:" %} {{ auction.title }}</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset>
+            <legend>{% trans "Основная информация" %}</legend>
+            {{ form.as_p }}
+        </fieldset>
+        <hr>
+        <fieldset>
+            <legend>{% trans "Дополнительные фотографии" %}</legend>
+            {{ formset.management_form }}
+            <div class="row">
+                {% for subform in formset %}
+                    <div class="col-md-4 mb-3">
+                        {{ subform.as_p }}
+                    </div>
+                {% endfor %}
+            </div>
+        </fieldset>
+        <button type="submit" class="btn btn-primary">{% trans "Сохранить изменения" %}</button>
+    </form>
+</div>
+{% endblock content %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/create_auction.css' %}">
+{% endblock extra_css %}

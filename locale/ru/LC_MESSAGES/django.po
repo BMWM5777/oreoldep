@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-16 14:58+0500\n"
+"POT-Creation-Date: 2025-05-11 16:55+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,13 +20,3149 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\stooreol\settings.py:126
+#: .\auction\templates\auction\admin_dashboard.html:5
+msgid "Административный дэшборд"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:10
+msgid "Административный дэшборд аукционов"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:13
+msgid "Общая статистика"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:15
+msgid "Общее количество аукционов:"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:16
+msgid "Подтвержденные аукционы:"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:17
+msgid "Ожидающие подтверждения:"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:18
+msgid "Отклонённые аукционы:"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:19
+msgid "Завершённые аукционы:"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:20
+msgid "Лоты на изменении:"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:21
+msgid "Средняя сумма ставки:"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:21
+msgid "Нет ставок"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:27
+msgid "Активность аукционов за последние 30 дней"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:31
+msgid "Распределение аукционов по статусам"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:37
+msgid "Лоты, ожидающие подтверждения"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:41
+#: .\auction\templates\auction\admin_dashboard.html:81
+msgid "Название лота"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:42
+#: .\auction\templates\auction\admin_dashboard.html:82
+msgid "Продавец"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:43
+#: .\auction\templates\auction\admin_dashboard.html:83
+msgid "Стартовая цена"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:44
+#: .\auction\templates\auction\admin_dashboard.html:84
+msgid "Дата создания"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:45
+#: .\auction\templates\auction\admin_dashboard.html:85
+msgid "Действия"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:61
+#: .\auction\templates\auction\admin_dashboard.html:101
+msgid "Подтвердить"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:62
+#: .\auction\templates\auction\admin_dashboard.html:102
+#: .\services\templates\services\appointment_detail.html:45
+#: .\services\templates\services\client_appointments.html:87
+msgid "Отклонить"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:64
+#: .\auction\templates\auction\admin_dashboard.html:130
+msgid "Запрос на изменение"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:69
+msgid "Нет лотов в ожидании"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:77
+msgid "Лоты на изменении"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:108
+msgid "Нет лотов на изменении"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:138
+msgid "Комментарий для пользователя"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:139
+msgid "Опишите, что нужно исправить"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:143
+#: .\main\templates\main\base.html:253
+#: .\review\templates\review\add_product_review.html:37
+msgid "Отмена"
+msgstr ""
+
+#: .\auction\templates\auction\admin_dashboard.html:144
+#: .\services\templates\services\reschedule_request_form.html:40
+msgid "Отправить запрос"
+msgstr ""
+
+#: .\auction\templates\auction\auction_detail.html:9
+#, python-format
+msgid "%(auction.title)s"
+msgstr ""
+
+#: .\auction\templates\auction\auction_detail.html:17
+#: .\main\templates\main\product\detail.html:20
+msgid "Миниатюра"
+msgstr ""
+
+#: .\auction\templates\auction\auction_detail.html:24
+msgid "Стартовая цена:"
+msgstr ""
+
+#: .\auction\templates\auction\auction_detail.html:25
+#: .\auction\templates\auction\auction_detail.html:29
+#: .\auction\templates\auction\auction_detail.html:66
+#: .\auction\templates\auction\auction_detail.html:82
+msgid "тенге"
+msgstr ""
+
+#: .\auction\templates\auction\auction_detail.html:28
+#: .\auction\templates\auction\my_auctions.html:31
+msgid "Текущая цена:"
+msgstr ""
+
+#: .\auction\templates\auction\auction_detail.html:32
+msgid "Дата начала:"
+msgstr ""
+
+#: .\auction\templates\auction\auction_detail.html:36
+msgid "Дата окончания:"
+msgstr ""
+
+#: .\auction\templates\auction\auction_detail.html:45
+msgid "Аукцион завершён."
+msgstr ""
+
+#: .\auction\templates\auction\auction_detail.html:47
+msgid "Победитель:"
+msgstr ""
+
+#: .\auction\templates\auction\auction_detail.html:49
+msgid "Победитель не определён."
+msgstr ""
+
+#: .\auction\templates\auction\auction_detail.html:57
+#: .\auction\templates\auction\auction_detail.html:68
+msgid "Сделать ставку"
+msgstr ""
+
+#: .\auction\templates\auction\auction_detail.html:74
+msgid "Ставки больше не принимаются."
+msgstr ""
+
+#: .\auction\templates\auction\auction_detail.html:77
+msgid "История ставок"
+msgstr ""
+
+#: .\auction\templates\auction\auction_detail.html:81
+msgid "поставил"
+msgstr ""
+
+#: .\auction\templates\auction\auction_detail.html:89
+msgid "Пока ставок нет."
+msgstr ""
+
+#: .\auction\templates\auction\auction_list.html:4
+msgid "Список аукционов"
+msgstr ""
+
+#: .\auction\templates\auction\auction_list.html:13
+msgid "Лоты аукциона"
+msgstr ""
+
+#: .\auction\templates\auction\auction_list.html:16
+msgid "Админ Дэшборд"
+msgstr ""
+
+#: .\auction\templates\auction\auction_list.html:19
+#: .\auction\templates\auction\auction_list.html:22
+#: .\auction\templates\auction\create_auction.html:4
+msgid "Создать лот"
+msgstr ""
+
+#: .\auction\templates\auction\auction_list.html:20
+#: .\auction\templates\auction\my_auctions.html:5
+#: .\auction\templates\auction\my_auctions.html:13
+msgid "Мои лоты"
+msgstr ""
+
+#: .\auction\templates\auction\auction_list.html:37
+msgid "Текущая цена"
+msgstr ""
+
+#: .\auction\templates\auction\auction_list.html:41
+#: .\auction\templates\auction\my_auctions.html:47
+#: .\main\templates\main\index\index.html:92
+#: .\main\templates\main\index\index.html:100
+#: .\main\templates\main\index\index.html:108
+#: .\main\templates\main\index\index.html:116
+#: .\main\templates\main\index\index.html:124
+#: .\main\templates\main\index\index.html:132
+#: .\services\templates\services\client_appointments.html:100
+msgid "Подробнее"
+msgstr ""
+
+#: .\auction\templates\auction\auction_list.html:48
+msgid "Нет активных лотов."
+msgstr ""
+
+#: .\auction\templates\auction\create_auction.html:9
+msgid "Создать новый лот"
+msgstr ""
+
+#: .\auction\templates\auction\create_auction.html:15
+#: .\auction\templates\auction\edit_auction.html:13
+msgid "Основная информация"
+msgstr ""
+
+#: .\auction\templates\auction\create_auction.html:22
+#: .\auction\templates\auction\edit_auction.html:18
+msgid "Дополнительные фотографии"
+msgstr ""
+
+#: .\auction\templates\auction\create_auction.html:36
+msgid "Отправить на модерацию"
+msgstr ""
+
+#: .\auction\templates\auction\edit_auction.html:5
+msgid "Редактировать лот"
+msgstr ""
+
+#: .\auction\templates\auction\edit_auction.html:9
+msgid "Редактирование лота:"
+msgstr ""
+
+#: .\auction\templates\auction\edit_auction.html:28
+msgid "Сохранить изменения"
+msgstr ""
+
+#: .\auction\templates\auction\my_auctions.html:28
+#: .\services\templates\services\reschedule_request_detail.html:15
+#: .\users\templates\users\orders_history.html:23
+msgid "Статус:"
+msgstr ""
+
+#: .\auction\templates\auction\my_auctions.html:53
+msgid "Внести изменения"
+msgstr ""
+
+#: .\auction\templates\auction\my_auctions.html:62
+msgid "У вас пока нет созданных лотов."
+msgstr ""
+
+#: .\cart\forms.py:12 .\cart\templates\cart\cart-detail.html:26
+#: .\cart\templates\cart\detail.html:24
+#: .\payment\templates\payment\process.html:25
+#: .\users\templates\users\profile.html:92
+msgid "Количество"
+msgstr ""
+
+#: .\cart\templates\cart\cart-detail.html:5 .\cart\templates\cart\detail.html:5
+msgid "Корзина"
+msgstr ""
+
+#: .\cart\templates\cart\cart-detail.html:10
+#: .\cart\templates\cart\detail.html:10
+msgid "Корзина покупок"
+msgstr ""
+
+#: .\cart\templates\cart\cart-detail.html:48
+#: .\favorites\templates\favorites\favorites_list.html:55
+msgid "Удалить"
+msgstr ""
+
+#: .\cart\templates\cart\cart-detail.html:56
+#: .\cart\templates\cart\detail.html:48
+#: .\payment\templates\payment\process.html:48
+msgid "Общая сумма"
+msgstr ""
+
+#: .\cart\templates\cart\cart-detail.html:59
+#: .\cart\templates\cart\detail.html:51
+msgid "Продолжить покупки"
+msgstr ""
+
+#: .\cart\templates\cart\cart-detail.html:62
+#: .\cart\templates\cart\detail.html:54
+msgid "Продолжить"
+msgstr ""
+
+#: .\cart\templates\cart\detail.html:40
+#: .\payment\templates\payment\process.html:39
+msgid "Убрать"
+msgstr ""
+
+#: .\favorites\templates\favorites\favorites_list.html:5
+msgid "Избранное"
+msgstr ""
+
+#: .\favorites\templates\favorites\favorites_list.html:10
+msgid "Мои избранные товары"
+msgstr ""
+
+#: .\favorites\templates\favorites\favorites_list.html:11
+msgid "товаров"
+msgstr ""
+
+#: .\favorites\templates\favorites\favorites_list.html:33
+msgid "В избранном"
+msgstr ""
+
+#: .\favorites\templates\favorites\favorites_list.html:63
+msgid "Ваш список избранного пуст"
+msgstr ""
+
+#: .\favorites\templates\favorites\favorites_list.html:64
+msgid "Сохраняйте понравившиеся товары здесь, чтобы не потерять"
+msgstr ""
+
+#: .\favorites\templates\favorites\favorites_list.html:65
+msgid "Начать покупки"
+msgstr ""
+
+#: .\main\templates\main\auth_required.html:5
+#: .\main\templates\main\auth_required.html:9
+msgid "Требуется авторизация"
+msgstr ""
+
+#: .\main\templates\main\auth_required.html:11
+msgid "Для доступа к этому разделу необходимо войти в свой аккаунт."
+msgstr ""
+
+#: .\main\templates\main\auth_required.html:14
+msgid "Войти / Зарегистрироваться"
+msgstr ""
+
+#: .\main\templates\main\base.html:29 .\main\templates\main\base.html:68
+#: .\main\templates\main\base.html:225
+#: .\review\templates\review\reviews.html:40
+msgid "На главную"
+msgstr ""
+
+#: .\main\templates\main\base.html:32 .\main\templates\main\base.html:71
+#: .\main\templates\main\product\list.html:5
+msgid "Магазин"
+msgstr ""
+
+#: .\main\templates\main\base.html:35 .\main\templates\main\base.html:74
+#: .\main\templates\main\base.html:227
+#: .\services\templates\services\service_list.html:4
+msgid "Услуги"
+msgstr ""
+
+#: .\main\templates\main\base.html:39 .\main\templates\main\base.html:78
+msgid "Аукцион"
+msgstr ""
+
+#: .\main\templates\main\base.html:120 .\main\templates\main\base.html:138
+#: .\main\templates\main\base.html:143 .\users\templates\users\profile.html:4
+#: .\users\templates\users\profile.html:12
+msgid "Профиль"
+msgstr ""
+
+#: .\main\templates\main\base.html:124 .\main\templates\main\base.html:148
+msgid "Личный Кабинет"
+msgstr ""
+
+#: .\main\templates\main\base.html:125 .\main\templates\main\base.html:149
+msgid "Данные об Авто"
+msgstr ""
+
+#: .\main\templates\main\base.html:126 .\main\templates\main\base.html:150
+msgid "История Заказов"
+msgstr ""
+
+#: .\main\templates\main\base.html:127 .\main\templates\main\base.html:151
+msgid "Мои Услуги"
+msgstr ""
+
+#: .\main\templates\main\base.html:129 .\main\templates\main\base.html:153
+msgid "Выйти из аккаунта"
+msgstr ""
+
+#: .\main\templates\main\base.html:158
+msgid "Регистрация/Вход"
+msgstr ""
+
+#: .\main\templates\main\base.html:204
+msgid "Свяжитесь с нами"
+msgstr ""
+
+#: .\main\templates\main\base.html:205
+msgid "Номер телефона"
+msgstr ""
+
+#: .\main\templates\main\base.html:206
+msgid "Тех. поддержка"
+msgstr ""
+
+#: .\main\templates\main\base.html:207
+msgid "Разработчики"
+msgstr ""
+
+#: .\main\templates\main\base.html:215
+msgid "Социальные сети"
+msgstr ""
+
+#: .\main\templates\main\base.html:226
+#: .\main\templates\main\index\index.html:60
+msgid "О нас"
+msgstr ""
+
+#: .\main\templates\main\base.html:228
+#: .\main\templates\main\product\detail.html:121
+msgid "Отзывы"
+msgstr ""
+
+#: .\main\templates\main\base.html:229
+msgid "Контакты"
+msgstr ""
+
+#: .\main\templates\main\base.html:232
+msgid "Наверх"
+msgstr ""
+
+#: .\main\templates\main\base.html:235
+msgid "Все права защищены"
+msgstr ""
+
+#: .\main\templates\main\base.html:235
+msgid "Авторские права Ореол"
+msgstr ""
+
+#: .\main\templates\main\base.html:242
+msgid "Доступ ограничен"
+msgstr ""
+
+#: .\main\templates\main\base.html:243
+msgid "Закрыть"
+msgstr ""
+
+#: .\main\templates\main\base.html:246
+msgid "Чтобы попасть на эту страницу, необходимо авторизоваться."
+msgstr ""
+
+#: .\main\templates\main\base.html:250
+msgid "Войти"
+msgstr ""
+
+#: .\main\templates\main\index\index.html:5
+msgid "Дом"
+msgstr ""
+
+#: .\main\templates\main\index\index.html:13
+msgid "Добро пожаловать в автосервис «Ореол»"
+msgstr ""
+
+#: .\main\templates\main\index\index.html:14
+msgid ""
+"Мы предлагаем широкий спектр услуг по ремонту и обслуживанию автомобилей."
+msgstr ""
+
+#: .\main\templates\main\index\index.html:24
+msgid "Новые товары"
+msgstr ""
+
+#: .\main\templates\main\index\index.html:62
+msgid "Автосервисный комплекс"
+msgstr ""
+
+#: .\main\templates\main\index\index.html:62
+msgid "Ореол"
+msgstr ""
+
+#: .\main\templates\main\index\index.html:62
+msgid ""
+"это место, где ваш автомобиль получает профессиональный уход и качественное "
+"обслуживание. Мы работаем уже много лет, сохраняя безупречную репутацию и "
+"высокие стандарты качества."
+msgstr ""
+
+#: .\main\templates\main\index\index.html:66
+msgid "Малярные работы"
+msgstr ""
+
+#: .\main\templates\main\index\index.html:67
+msgid ""
+"Профессиональная покраска, восстановление кузова, удаление сколов и царапин. "
+"Используем только качественные материалы и современные технологии."
+msgstr ""
+
+#: .\main\templates\main\index\index.html:71
+msgid "Автосервис"
+msgstr ""
+
+#: .\main\templates\main\index\index.html:72
+msgid ""
+"Диагностика, ремонт и техническое обслуживание автомобилей любой сложности. "
+"Наши мастера оперативно решат любые проблемы."
+msgstr ""
+
+#: .\main\templates\main\index\index.html:76
+#: .\main\templates\main\index\index.html:98
+msgid "Замена масла"
+msgstr ""
+
+#: .\main\templates\main\index\index.html:77
+msgid ""
+"Быстрая и качественная замена моторного масла с учетом рекомендаций "
+"производителя. Используем только проверенные масла."
+msgstr ""
+
+#: .\main\templates\main\index\index.html:84
+#: .\services\templates\services\service_list.html:9
+msgid "Наши услуги"
+msgstr ""
+
+#: .\main\templates\main\index\index.html:90
+msgid "Покраска авто"
+msgstr ""
+
+#: .\main\templates\main\index\index.html:91
+msgid "Полная и частичная покраска автомобилей с гарантией качества."
+msgstr ""
+
+#: .\main\templates\main\index\index.html:99
+msgid "Профессиональная замена масла с использованием качественных материалов."
+msgstr ""
+
+#: .\main\templates\main\index\index.html:106
+msgid "Ремонт двигателя"
+msgstr ""
+
+#: .\main\templates\main\index\index.html:107
+msgid "Диагностика и ремонт двигателей любой сложности."
+msgstr ""
+
+#: .\main\templates\main\index\index.html:114
+msgid "Шиномонтаж"
+msgstr ""
+
+#: .\main\templates\main\index\index.html:115
+msgid "Балансировка, правка дисков и замена шин."
+msgstr ""
+
+#: .\main\templates\main\index\index.html:122
+msgid "Компьютерная диагностика"
+msgstr ""
+
+#: .\main\templates\main\index\index.html:123
+msgid "Современное оборудование для выявления неисправностей."
+msgstr ""
+
+#: .\main\templates\main\index\index.html:130
+msgid "Ходовая часть"
+msgstr ""
+
+#: .\main\templates\main\index\index.html:131
+msgid "Ремонт и замена элементов подвески."
+msgstr ""
+
+#: .\main\templates\main\index\index.html:149
+msgid "Почему выбирают нас?"
+msgstr ""
+
+#: .\main\templates\main\index\index.html:155
+msgid "Опыт и надежность"
+msgstr ""
+
+#: .\main\templates\main\index\index.html:156
+msgid "Десятки лет работы, тысячи довольных клиентов и безупречная репутация."
+msgstr ""
+
+#: .\main\templates\main\index\index.html:162
+msgid "Качество и технологии"
+msgstr ""
+
+#: .\main\templates\main\index\index.html:163
+msgid ""
+"Современные материалы, передовое оборудование и профессиональные мастера."
+msgstr ""
+
+#: .\main\templates\main\index\index.html:169
+msgid "Честность и прозрачность"
+msgstr ""
+
+#: .\main\templates\main\index\index.html:170
+msgid ""
+"Никакого навязанного ремонта и скрытых платежей. Вы всегда знаете, за что "
+"платите."
+msgstr ""
+
+#: .\main\templates\main\index\index.html:176
+msgid "Гарантия на работы"
+msgstr ""
+
+#: .\main\templates\main\index\index.html:177
+msgid "Уверены в качестве и предоставляем гарантию на все виды услуг."
+msgstr ""
+
+#: .\main\templates\main\index\index.html:183
+msgid "Удобство и скорость"
+msgstr ""
+
+#: .\main\templates\main\index\index.html:184
+msgid "Оперативно обслуживаем ваш автомобиль, экономя ваше время."
+msgstr ""
+
+#: .\main\templates\main\index\index.html:201
+#: .\review\templates\review\reviews.html:10
+msgid "Отзывы клиентов"
+msgstr ""
+
+#: .\main\templates\main\index\index.html:219
+#: .\review\templates\review\reviews.html:28
+#: .\services\templates\services\client_appointments.html:29
+msgid "Дата"
+msgstr ""
+
+#: .\main\templates\main\index\index.html:222
+#: .\review\templates\review\reviews.html:31
+msgid "Пока нет отзывов. Будьте первым!"
+msgstr ""
+
+#: .\main\templates\main\product\detail.html:15
+msgid "Фото товара"
+msgstr ""
+
+#: .\main\templates\main\product\detail.html:43
+#: .\main\templates\main\product\detail.html:83
+msgid "Категория"
+msgstr ""
+
+#: .\main\templates\main\product\detail.html:57
+msgid "Описание"
+msgstr ""
+
+#: .\main\templates\main\product\detail.html:64
+msgid "Показать полностью"
+msgstr ""
+
+#: .\main\templates\main\product\detail.html:74
+msgid "Добавить в корзину"
+msgstr ""
+
+#: .\main\templates\main\product\detail.html:81
+msgid "Дополнительная информация"
+msgstr ""
+
+#: .\main\templates\main\product\detail.html:85
+#: .\users\templates\users\profile.html:93
+msgid "Цена"
+msgstr ""
+
+#: .\main\templates\main\product\detail.html:93
+msgid "Обновлено"
+msgstr ""
+
+#: .\main\templates\main\product\detail.html:97
+msgid "Рейтинг"
+msgstr ""
+
+#: .\main\templates\main\product\detail.html:112
+msgid "Нет оценок"
+msgstr ""
+
+#: .\main\templates\main\product\detail.html:137
+msgid "Пока нет отзывов."
+msgstr ""
+
+#: .\main\templates\main\product\detail.html:144
+#: .\review\templates\review\reviews.html:36
+msgid "Оставить отзыв"
+msgstr ""
+
+#: .\main\templates\main\product\detail.html:148
+msgid "Вы не можете оставить отзыв на этот товар."
+msgstr ""
+
+#: .\main\templates\main\product\detail.html:153
+msgid "Войдите"
+msgstr ""
+
+#: .\main\templates\main\product\detail.html:155
+msgid "чтобы оставить отзыв."
+msgstr ""
+
+#: .\main\templates\main\product\list.html:13
+#: .\services\templates\services\service_list.html:15
+msgid "Категории"
+msgstr ""
+
+#: .\main\templates\main\product\list.html:16
+#: .\services\templates\services\service_list.html:19
+msgid "Все"
+msgstr ""
+
+#: .\main\templates\main\product\list.html:28
+msgid "Продукты"
+msgstr ""
+
+#: .\main\templates\main\product\list.html:32
+msgid "🔍 Искать товар..."
+msgstr ""
+
+#: .\main\templates\main\product\list.html:37
+msgid "Сортировать"
+msgstr ""
+
+#: .\main\templates\main\product\list.html:39
+msgid "Без сортировки"
+msgstr ""
+
+#: .\main\templates\main\product\list.html:40
+msgid "По убыванию цены"
+msgstr ""
+
+#: .\main\templates\main\product\list.html:41
+msgid "По возрастанию цены"
+msgstr ""
+
+#: .\main\templates\main\product\list.html:42
+msgid "По свежести (новые)"
+msgstr ""
+
+#: .\main\templates\main\product\list.html:43
+msgid "По свежести (старые)"
+msgstr ""
+
+#: .\main\templates\main\product\list.html:70
+msgid "Нет рейтинга"
+msgstr ""
+
+#: .\main\templates\main\product\list.html:101
+#: .\users\templates\users\car_data.html:74
+msgid "Назад"
+msgstr ""
+
+#: .\main\templates\main\product\list.html:117
+msgid "Вперёд"
+msgstr ""
+
+#: .\orders\templates\orders\order\create.html:5
+#: .\orders\templates\orders\order\create.html:10
+msgid "Оформление заказа"
+msgstr ""
+
+#: .\orders\templates\orders\order\create.html:15
+#: .\users\templates\users\profile.html:45
+#: .\users\templates\users\registration.html:49
+msgid "Имя"
+msgstr ""
+
+#: .\orders\templates\orders\order\create.html:17
+#: .\users\templates\users\profile.html:47
+msgid "Ваше имя"
+msgstr ""
+
+#: .\orders\templates\orders\order\create.html:22
+#: .\users\templates\users\profile.html:51
+#: .\users\templates\users\registration.html:71
+msgid "Фамилия"
+msgstr ""
+
+#: .\orders\templates\orders\order\create.html:24
+#: .\users\templates\users\profile.html:53
+msgid "Ваша фамилия"
+msgstr ""
+
+#: .\orders\templates\orders\order\create.html:29
+#: .\users\templates\users\profile.html:37
+msgid "Почта"
+msgstr ""
+
+#: .\orders\templates\orders\order\create.html:31
+#: .\users\templates\users\profile.html:39
+msgid "Ваша почта"
+msgstr ""
+
+#: .\orders\templates\orders\order\create.html:36
+msgid "Адрес"
+msgstr ""
+
+#: .\orders\templates\orders\order\create.html:38
+msgid "Ваш адрес"
+msgstr ""
+
+#: .\orders\templates\orders\order\create.html:43
+msgid "Город"
+msgstr ""
+
+#: .\orders\templates\orders\order\create.html:45
+msgid "Ваш город"
+msgstr ""
+
+#: .\orders\templates\orders\order\create.html:50
+msgid "Индекс"
+msgstr ""
+
+#: .\orders\templates\orders\order\create.html:52
+msgid "Ваш почтовый индекс"
+msgstr ""
+
+#: .\orders\templates\orders\order\create.html:56
+msgid "Подтвердить заказ"
+msgstr ""
+
+#: .\orders\templates\orders\order\created.html:3
+msgid "Заказ оформлен"
+msgstr ""
+
+#: .\orders\templates\orders\order\created.html:6
+msgid "Ваш заказ был создан"
+msgstr ""
+
+#: .\payment\templates\payment\canceled.html:4
+msgid "Отмена платежа"
+msgstr ""
+
+#: .\payment\templates\payment\canceled.html:8
+msgid "Оплата была отменена"
+msgstr ""
+
+#: .\payment\templates\payment\completed.html:3
+#: .\payment\templates\payment\completed.html:7
+msgid "Оплата прошла успешно"
+msgstr ""
+
+#: .\payment\templates\payment\process.html:5
+msgid "Процесс оплаты"
+msgstr ""
+
+#: .\payment\templates\payment\process.html:10
+msgid "Оплата заказа"
+msgstr ""
+
+#: .\payment\templates\payment\process.html:53
+msgid "Оплатить"
+msgstr ""
+
+#: .\review\templates\review\add_product_review.html:10
+#: .\review\templates\review\add_product_review.html:15
+#, python-format
+msgid "Оставить отзыв на «%(name)s»"
+msgstr ""
+
+#: .\review\templates\review\add_product_review.html:20
+#: .\review\templates\review\add_review.html:17
+msgid "Ваш отзыв"
+msgstr ""
+
+#: .\review\templates\review\add_product_review.html:26
+msgid "Оцените товар"
+msgstr ""
+
+#: .\review\templates\review\add_product_review.html:36
+msgid "Опубликовать отзыв"
+msgstr ""
+
+#: .\review\templates\review\add_review.html:12
+msgid "Оставьте ваш отзыв"
+msgstr ""
+
+#: .\review\templates\review\add_review.html:22
+msgid "Оцените нас"
+msgstr ""
+
+#: .\review\templates\review\add_review.html:31
+msgid "Отправить"
+msgstr ""
+
+#: .\review\templates\review\add_review.html:33
+msgid "Все отзывы"
+msgstr ""
+
+#: .\review\templates\review\reviews.html:38
+msgid "Войдите в аккаунт, чтобы оставить отзыв."
+msgstr ""
+
+#: .\services\models.py:64
+msgid "Ожидание"
+msgstr ""
+
+#: .\services\models.py:65
+msgid "Подтверждено"
+msgstr ""
+
+#: .\services\models.py:66
+msgid "Отменено"
+msgstr ""
+
+#: .\services\models.py:84
+msgid "Ожидает подтверждения"
+msgstr ""
+
+#: .\services\models.py:85
+msgid "Подтвержден"
+msgstr ""
+
+#: .\services\models.py:86
+msgid "Отклонен"
+msgstr ""
+
+#: .\services\models.py:93
+msgid "Статус запроса"
+msgstr ""
+
+#: .\services\models.py:95
+msgid "Дата запроса"
+msgstr ""
+
+#: .\services\models.py:98
+msgid "Запрос на перенос услуги"
+msgstr ""
+
+#: .\services\models.py:99
+msgid "Запросы на перенос услуг"
+msgstr ""
+
+#: .\services\templates\services\appointment_detail.html:4
+msgid "Детали записи"
+msgstr ""
+
+#: .\services\templates\services\appointment_detail.html:11
+msgid "Детали записи на услугу"
+msgstr ""
+
+#: .\services\templates\services\appointment_detail.html:16
+#: .\services\templates\services\client_appointments.html:60
+#: .\services\templates\services\master_appointments.html:26
+msgid "Дата и время:"
+msgstr ""
+
+#: .\services\templates\services\appointment_detail.html:17
+#: .\services\templates\services\client_appointments.html:61
+#: .\services\templates\services\master_appointments.html:31
+msgid "Статус записи:"
+msgstr ""
+
+#: .\services\templates\services\appointment_detail.html:21
+msgid "Не установлен"
+msgstr ""
+
+#: .\services\templates\services\appointment_detail.html:23
+#: .\services\templates\services\client_appointments.html:62
+#: .\services\templates\services\service_list.html:61
+msgid "Мастер:"
+msgstr ""
+
+#: .\services\templates\services\appointment_detail.html:25
+#: .\services\templates\services\client_appointments.html:65
+#: .\services\templates\services\master_appointments.html:29
+msgid "Авто:"
+msgstr ""
+
+#: .\services\templates\services\appointment_detail.html:33
+#: .\services\templates\services\master_appointments.html:51
+msgid "Запросы на перенос"
+msgstr ""
+
+#: .\services\templates\services\appointment_detail.html:37
+#: .\services\templates\services\client_appointments.html:76
+#: .\services\templates\services\master_appointments.html:55
+#: .\services\templates\services\reschedule_request_detail.html:13
+msgid "Новая дата и время:"
+msgstr ""
+
+#: .\services\templates\services\appointment_detail.html:38
+#: .\services\templates\services\client_appointments.html:77
+#: .\services\templates\services\master_appointments.html:56
+#: .\services\templates\services\reschedule_request_detail.html:14
+msgid "Комментарий:"
+msgstr ""
+
+#: .\services\templates\services\appointment_detail.html:39
+#: .\services\templates\services\client_appointments.html:78
+#: .\services\templates\services\master_appointments.html:57
+msgid "Статус запроса:"
+msgstr ""
+
+#: .\services\templates\services\appointment_detail.html:44
+#: .\services\templates\services\client_appointments.html:84
+msgid "Принять"
+msgstr ""
+
+#: .\services\templates\services\appointment_detail.html:52
+msgid "Запросов на перенос нет."
+msgstr ""
+
+#: .\services\templates\services\appointment_detail.html:56
+#: .\services\templates\services\reschedule_request_detail.html:37
+msgid "Вернуться к записям"
+msgstr ""
+
+#: .\services\templates\services\appointment_form.html:4
+msgid "Запись на услугу"
+msgstr ""
+
+#: .\services\templates\services\appointment_form.html:18
+msgid "Записаться на услугу"
+msgstr ""
+
+#: .\services\templates\services\appointment_form.html:36
+msgid "Выберите дату"
+msgstr ""
+
+#: .\services\templates\services\appointment_form.html:41
+msgid "Свободные слоты"
+msgstr ""
+
+#: .\services\templates\services\appointment_form.html:68
+msgid "Отправить заявку"
+msgstr ""
+
+#: .\services\templates\services\appointment_form.html:121
+msgid "Нет свободных слотов на эту дату. Выберите другой день."
+msgstr ""
+
+#: .\services\templates\services\appointment_form.html:125
+msgid "Ошибка при получении доступных слотов."
+msgstr ""
+
+#: .\services\templates\services\client_appointments.html:5
+#: .\services\templates\services\client_appointments.html:11
+#: .\services\templates\services\service_list.html:36
+msgid "Мои записи на услуги"
+msgstr ""
+
+#: .\services\templates\services\client_appointments.html:16
+msgid "Статус"
+msgstr ""
+
+#: .\services\templates\services\client_appointments.html:18
+msgid "Все статусы"
+msgstr ""
+
+#: .\services\templates\services\client_appointments.html:36
+msgid "Фильтровать"
+msgstr ""
+
+#: .\services\templates\services\client_appointments.html:40
+msgid "Сбросить"
+msgstr ""
+
+#: .\services\templates\services\client_appointments.html:63
+#: .\services\templates\services\service_list.html:55
+msgid "Цена:"
+msgstr ""
+
+#: .\services\templates\services\client_appointments.html:72
+msgid "Запросы на перенос записи услуги:"
+msgstr ""
+
+#: .\services\templates\services\client_appointments.html:111
+msgid "У вас ещё нет записей на услуги."
+msgstr ""
+
+#: .\services\templates\services\master_appointments.html:5
+#: .\services\templates\services\master_appointments.html:10
+msgid "Записи на мои услуги"
+msgstr ""
+
+#: .\services\templates\services\master_appointments.html:13
+msgid "Показать календарь"
+msgstr ""
+
+#: .\services\templates\services\master_appointments.html:25
+msgid "Клиент:"
+msgstr ""
+
+#: .\services\templates\services\master_appointments.html:27
+msgid "Контакты:"
+msgstr ""
+
+#: .\services\templates\services\master_appointments.html:40
+msgid "Принять запись"
+msgstr ""
+
+#: .\services\templates\services\master_appointments.html:43
+msgid "Отклонить запись"
+msgstr ""
+
+#: .\services\templates\services\master_appointments.html:66
+msgid "Предложить перенос"
+msgstr ""
+
+#: .\services\templates\services\master_appointments.html:73
+msgid "Нет записей."
+msgstr ""
+
+#: .\services\templates\services\master_appointments_calendar.html:4
+#: .\services\templates\services\master_appointments_calendar.html:9
+msgid "Календарь записей"
+msgstr ""
+
+#: .\services\templates\services\master_appointments_calendar.html:11
+msgid "Список записей"
+msgstr ""
+
+#: .\services\templates\services\master_appointments_calendar.html:43
+msgid "Today"
+msgstr ""
+
+#: .\services\templates\services\master_appointments_calendar.html:44
+msgid "Month"
+msgstr ""
+
+#: .\services\templates\services\master_appointments_calendar.html:45
+msgid "Week"
+msgstr ""
+
+#: .\services\templates\services\master_appointments_calendar.html:46
+msgid "Day"
+msgstr ""
+
+#: .\services\templates\services\reschedule_request_detail.html:4
+#: .\services\templates\services\reschedule_request_detail.html:8
+msgid "Детали запроса на перенос"
+msgstr ""
+
+#: .\services\templates\services\reschedule_request_detail.html:25
+msgid "Принять перенос"
+msgstr ""
+
+#: .\services\templates\services\reschedule_request_detail.html:30
+msgid "Отклонить перенос"
+msgstr ""
+
+#: .\services\templates\services\reschedule_request_detail.html:34
+msgid "Действия с запросом завершены."
+msgstr ""
+
+#: .\services\templates\services\reschedule_request_form.html:5
+msgid "Запрос на перенос"
+msgstr ""
+
+#: .\services\templates\services\reschedule_request_form.html:11
+msgid "Создать запрос на перенос записи"
+msgstr ""
+
+#: .\services\templates\services\reschedule_request_form.html:18
+msgid "Ошибка!"
+msgstr ""
+
+#: .\services\templates\services\reschedule_request_form.html:18
+msgid "Пожалуйста, исправьте следующие ошибки:"
+msgstr ""
+
+#: .\services\templates\services\reschedule_request_form.html:30
+msgid "Новая дата и время"
+msgstr ""
+
+#: .\services\templates\services\reschedule_request_form.html:35
+msgid "Комментарий"
+msgstr ""
+
+#: .\services\templates\services\service_list.html:40
+msgid "Записи моих услуг"
+msgstr ""
+
+#: .\services\templates\services\service_list.html:58
+msgid "Время:"
+msgstr ""
+
+#: .\services\templates\services\service_list.html:66
+msgid "Записаться"
+msgstr ""
+
+#: .\services\templates\services\service_list.html:74
+msgid "Услуг пока нет."
+msgstr ""
+
+#: .\services\views.py:129 .\services\views.py:269 .\services\views.py:340
+msgid "Доступ запрещён"
+msgstr ""
+
+#: .\services\views.py:242
+msgid "Выбранное время занято. Вы можете записаться после {}."
+msgstr ""
+
+#: .\services\views.py:251
+msgid "Вы успешно записались на услугу"
+msgstr ""
+
+#: .\services\views.py:254
+msgid "Пожалуйста, заполните все обязательные поля корректно"
+msgstr ""
+
+#: .\services\views.py:276
+msgid "Запись принята"
+msgstr ""
+
+#: .\services\views.py:280
+msgid "Запись отклонена"
+msgstr ""
+
+#: .\stooreol\settings.py:136
 msgid "Русский"
 msgstr ""
 
-#: .\stooreol\settings.py:127
+#: .\stooreol\settings.py:137
 msgid "Қазақша"
 msgstr ""
 
-#~ msgid "Translations"
-#~ msgstr "Переводы"
+#: .\users\templates\users\car_data.html:5
+msgid "Данные об авто"
+msgstr ""
+
+#: .\users\templates\users\car_data.html:12
+msgid "Данные об автомобиле"
+msgstr ""
+
+#: .\users\templates\users\car_data.html:13
+msgid "Укажите или отредактируйте информацию о своём автомобиле."
+msgstr ""
+
+#: .\users\templates\users\car_data.html:22
+msgid "Марка авто"
+msgstr ""
+
+#: .\users\templates\users\car_data.html:28
+msgid "Например, BMW"
+msgstr ""
+
+#: .\users\templates\users\car_data.html:34
+msgid "Год авто"
+msgstr ""
+
+#: .\users\templates\users\car_data.html:40
+msgid "Например, 2020"
+msgstr ""
+
+#: .\users\templates\users\car_data.html:46
+msgid "Гос. номер авто"
+msgstr ""
+
+#: .\users\templates\users\car_data.html:52
+msgid "Например, 755KEA04"
+msgstr ""
+
+#: .\users\templates\users\car_data.html:58
+msgid "VIN код авто"
+msgstr ""
+
+#: .\users\templates\users\car_data.html:64
+msgid "Введите VIN код"
+msgstr ""
+
+#: .\users\templates\users\car_data.html:71
+#: .\users\templates\users\profile.html:68
+msgid "Сохранить"
+msgstr ""
+
+#: .\users\templates\users\login.html:5
+msgid "Вход"
+msgstr ""
+
+#: .\users\templates\users\login.html:13
+msgid "Добро пожаловать в СТО Ореол"
+msgstr ""
+
+#: .\users\templates\users\login.html:14
+msgid "Профессиональный сервис для вашего автомобиля"
+msgstr ""
+
+#: .\users\templates\users\login.html:21
+msgid "Вход в систему"
+msgstr ""
+
+#: .\users\templates\users\login.html:51
+#: .\users\templates\users\profile.html:31
+#: .\users\templates\users\registration.html:92
+msgid "Имя пользователя"
+msgstr ""
+
+#: .\users\templates\users\login.html:57
+msgid "Введите имя пользователя"
+msgstr ""
+
+#: .\users\templates\users\login.html:73
+#: .\users\templates\users\registration.html:134
+msgid "Пароль"
+msgstr ""
+
+#: .\users\templates\users\login.html:80
+msgid "Введите пароль"
+msgstr ""
+
+#: .\users\templates\users\login.html:97
+#: .\users\templates\users\registration.html:191
+msgid "Войти в систему"
+msgstr ""
+
+#: .\users\templates\users\login.html:103
+msgid "Восстановить пароль"
+msgstr ""
+
+#: .\users\templates\users\login.html:108
+#: .\users\templates\users\registration.html:5
+msgid "Регистрация"
+msgstr ""
+
+#: .\users\templates\users\orders_history.html:5
+#: .\users\templates\users\orders_history.html:12
+msgid "История заказов"
+msgstr ""
+
+#: .\users\templates\users\orders_history.html:13
+msgid "Просмотрите все свои оформленные заказы."
+msgstr ""
+
+#: .\users\templates\users\orders_history.html:21
+#: .\users\templates\users\profile.html:82
+msgid "Заказ"
+msgstr ""
+
+#: .\users\templates\users\orders_history.html:28
+#: .\users\templates\users\profile.html:95
+msgid "Дата создания заказа"
+msgstr ""
+
+#: .\users\templates\users\orders_history.html:29
+msgid "Общая стоимость"
+msgstr ""
+
+#: .\users\templates\users\orders_history.html:31
+msgid "Состав заказа"
+msgstr ""
+
+#: .\users\templates\users\orders_history.html:36
+msgid "Название:"
+msgstr ""
+
+#: .\users\templates\users\orders_history.html:41
+msgid "Количество:"
+msgstr ""
+
+#: .\users\templates\users\orders_history.html:42
+msgid "Цена за единицу:"
+msgstr ""
+
+#: .\users\templates\users\orders_history.html:50
+msgid "У вас ещё нет оформленных заказов."
+msgstr ""
+
+#: .\users\templates\users\password_reset.html:5
+#: .\users\templates\users\password_reset.html:21
+msgid "Сброс пароля"
+msgstr ""
+
+#: .\users\templates\users\password_reset.html:13
+msgid "Восстановление доступа"
+msgstr ""
+
+#: .\users\templates\users\password_reset.html:14
+msgid "Мы поможем вернуть доступ к вашему аккаунту"
+msgstr ""
+
+#: .\users\templates\users\password_reset.html:22
+msgid ""
+"Введите ваш адрес электронной почты, и мы отправим вам инструкции для сброса "
+"пароля."
+msgstr ""
+
+#: .\users\templates\users\password_reset.html:31
+#: .\users\templates\users\registration.html:113
+msgid "Электронная почта"
+msgstr ""
+
+#: .\users\templates\users\password_reset.html:37
+#: .\users\templates\users\registration.html:119
+msgid "oreol.kz@mail.ru"
+msgstr ""
+
+#: .\users\templates\users\password_reset.html:44
+msgid "Отправить инструкции"
+msgstr ""
+
+#: .\users\templates\users\password_reset_complete.html:5
+#: .\users\templates\users\password_reset_complete.html:22
+msgid "Пароль изменён"
+msgstr ""
+
+#: .\users\templates\users\password_reset_complete.html:13
+msgid "Успешное обновление"
+msgstr ""
+
+#: .\users\templates\users\password_reset_complete.html:14
+msgid "Ваш аккаунт теперь защищен"
+msgstr ""
+
+#: .\users\templates\users\password_reset_complete.html:24
+msgid "Ваш пароль успешно изменён. Теперь вы можете"
+msgstr ""
+
+#: .\users\templates\users\password_reset_complete.html:26
+msgid "войти"
+msgstr ""
+
+#: .\users\templates\users\password_reset_confirm.html:5
+#: .\users\templates\users\password_reset_confirm.html:21
+msgid "Установите новый пароль"
+msgstr ""
+
+#: .\users\templates\users\password_reset_confirm.html:13
+msgid "Новый уровень безопасности"
+msgstr ""
+
+#: .\users\templates\users\password_reset_confirm.html:14
+msgid "Защитите свой аккаунт надежным паролем"
+msgstr ""
+
+#: .\users\templates\users\password_reset_confirm.html:30
+msgid "Новый пароль"
+msgstr ""
+
+#: .\users\templates\users\password_reset_confirm.html:37
+#: .\users\templates\users\registration.html:141
+msgid "Не менее 8 символов"
+msgstr ""
+
+#: .\users\templates\users\password_reset_confirm.html:48
+#: .\users\templates\users\registration.html:159
+msgid "Подтвердите пароль"
+msgstr ""
+
+#: .\users\templates\users\password_reset_confirm.html:55
+msgid "Повторите новый пароль"
+msgstr ""
+
+#: .\users\templates\users\password_reset_confirm.html:65
+msgid "Сохранить пароль"
+msgstr ""
+
+#: .\users\templates\users\password_reset_done.html:5
+#: .\users\templates\users\password_reset_done.html:22
+msgid "Инструкция отправлена"
+msgstr ""
+
+#: .\users\templates\users\password_reset_done.html:13
+msgid "Проверьте почту"
+msgstr ""
+
+#: .\users\templates\users\password_reset_done.html:14
+msgid "Важные инструкции уже в пути"
+msgstr ""
+
+#: .\users\templates\users\password_reset_done.html:24
+msgid ""
+"Если учетная запись с указанным email существует, вы получите письмо с "
+"дальнейшими инструкциями по сбросу пароля."
+msgstr ""
+
+#: .\users\templates\users\password_reset_email.html:2
+#, python-format
+msgid ""
+"Вы получили это письмо, так как запрошен сброс пароля для вашей учетной "
+"записи на %(site_name)s."
+msgstr ""
+
+#: .\users\templates\users\password_reset_email.html:4
+msgid "Перейдите по следующей ссылке и выберите новый пароль:"
+msgstr ""
+
+#: .\users\templates\users\password_reset_email.html:9
+msgid "Ваше имя пользователя:"
+msgstr ""
+
+#: .\users\templates\users\password_reset_email.html:11
+msgid "Спасибо за использование нашего сайта!"
+msgstr ""
+
+#: .\users\templates\users\password_reset_email.html:13
+#, python-format
+msgid "Команда %(site_name)s"
+msgstr ""
+
+#: .\users\templates\users\profile.html:23
+msgid "Выбрать фото"
+msgstr ""
+
+#: .\users\templates\users\profile.html:33
+msgid "Ваше имя пользователя"
+msgstr ""
+
+#: .\users\templates\users\profile.html:59
+msgid "Телефон"
+msgstr ""
+
+#: .\users\templates\users\profile.html:61
+msgid "Ваш номер телефона"
+msgstr ""
+
+#: .\users\templates\users\profile.html:69
+msgid "Выйти"
+msgstr ""
+
+#: .\users\templates\users\profile.html:76
+msgid "Истории заказов"
+msgstr ""
+
+#: .\users\templates\users\profile.html:87
+msgid "Наименование"
+msgstr ""
+
+#: .\users\templates\users\profile.html:103
+msgid "У вас ещё нет заказов."
+msgstr ""
+
+#: .\users\templates\users\registration.html:13
+msgid "Присоединяйтесь к нашему сервису"
+msgstr ""
+
+#: .\users\templates\users\registration.html:14
+msgid "Станьте частью профессионального автомобильного сообщества"
+msgstr ""
+
+#: .\users\templates\users\registration.html:21
+msgid "Создание аккаунта"
+msgstr ""
+
+#: .\users\templates\users\registration.html:55
+msgid "Введите ваше имя"
+msgstr ""
+
+#: .\users\templates\users\registration.html:77
+msgid "Введите вашу фамилию"
+msgstr ""
+
+#: .\users\templates\users\registration.html:98
+msgid "Придумайте логин"
+msgstr ""
+
+#: .\users\templates\users\registration.html:166
+msgid "Повторите ваш пароль"
+msgstr ""
+
+#: .\users\templates\users\registration.html:184
+msgid "Зарегистрироваться"
+msgstr ""
+
+#: .\users\templates\users\registration.html:188
+msgid "Уже есть аккаунт?"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\_termui_impl.py:556
+#, python-brace-format
+msgid "{editor}: Editing failed"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\_termui_impl.py:560
+#, python-brace-format
+msgid "{editor}: Editing failed: {e}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:1124
+msgid "Aborted!"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:1349
+#: .\venv\Lib\site-packages\click\core.py:1379
+#, python-brace-format
+msgid "(Deprecated) {text}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:1396
+msgid "Options"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:1422
+#, python-brace-format
+msgid "Got unexpected extra argument ({args})"
+msgid_plural "Got unexpected extra arguments ({args})"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: .\venv\Lib\site-packages\click\core.py:1438
+msgid "DeprecationWarning: The command {name!r} is deprecated."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:1645
+msgid "Commands"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:1677
+msgid "Missing command."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:1755
+msgid "No such command {name!r}."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:2313
+msgid "Value must be an iterable."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:2334
+#, python-brace-format
+msgid "Takes {nargs} values but 1 was given."
+msgid_plural "Takes {nargs} values but {len} were given."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: .\venv\Lib\site-packages\click\core.py:2783
+#, python-brace-format
+msgid "env var: {var}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:2813
+msgid "(dynamic)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:2828
+#, python-brace-format
+msgid "default: {default}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:2841
+msgid "required"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\decorators.py:457
+#, python-format
+msgid "%(prog)s, version %(version)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\decorators.py:520
+msgid "Show the version and exit."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\decorators.py:541
+msgid "Show this message and exit."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:49
+#: .\venv\Lib\site-packages\click\exceptions.py:88
+#, python-brace-format
+msgid "Error: {message}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:80
+#, python-brace-format
+msgid "Try '{command} {option}' for help."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:129
+#, python-brace-format
+msgid "Invalid value: {message}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:131
+#, python-brace-format
+msgid "Invalid value for {param_hint}: {message}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:187
+msgid "Missing argument"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:189
+msgid "Missing option"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:191
+msgid "Missing parameter"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:193
+#, python-brace-format
+msgid "Missing {param_type}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:200
+#, python-brace-format
+msgid "Missing parameter: {param_name}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:220
+#, python-brace-format
+msgid "No such option: {name}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:232
+#, python-brace-format
+msgid "Did you mean {possibility}?"
+msgid_plural "(Possible options: {possibilities})"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:270
+msgid "unknown error"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:277
+msgid "Could not open file {filename!r}: {message}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\formatting.py:156
+msgid "Usage:"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\parser.py:233
+msgid "Argument {name!r} takes {nargs} values."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\parser.py:415
+msgid "Option {name!r} does not take a value."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\parser.py:476
+msgid "Option {name!r} requires an argument."
+msgid_plural "Option {name!r} requires {nargs} arguments."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: .\venv\Lib\site-packages\click\shell_completion.py:326
+msgid "Shell completion is not supported for Bash versions older than 4.4."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\shell_completion.py:333
+msgid "Couldn't detect Bash version, shell completion is not supported."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\termui.py:158
+msgid "Repeat for confirmation"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\termui.py:174
+msgid "Error: The value you entered was invalid."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\termui.py:176
+#, python-brace-format
+msgid "Error: {e.message}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\termui.py:187
+msgid "Error: The two entered values do not match."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\termui.py:243
+msgid "Error: invalid input"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\termui.py:773
+msgid "Press any key to continue..."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:267
+#, python-brace-format
+msgid ""
+"Choose from:\n"
+"\t{choices}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:299
+msgid "{value!r} is not {choice}."
+msgid_plural "{value!r} is not one of {choices}."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: .\venv\Lib\site-packages\click\types.py:393
+msgid "{value!r} does not match the format {format}."
+msgid_plural "{value!r} does not match the formats {formats}."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: .\venv\Lib\site-packages\click\types.py:415
+msgid "{value!r} is not a valid {number_type}."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:471
+#, python-brace-format
+msgid "{value} is not in the range {range}."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:612
+msgid "{value!r} is not a valid boolean."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:636
+msgid "{value!r} is not a valid UUID."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:826
+msgid "file"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:828
+msgid "directory"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:830
+msgid "path"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:881
+msgid "{name} {filename!r} does not exist."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:890
+msgid "{name} {filename!r} is a file."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:898
+msgid "{name} {filename!r} is a directory."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:907
+msgid "{name} {filename!r} is not readable."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:916
+msgid "{name} {filename!r} is not writable."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:925
+msgid "{name} {filename!r} is not executable."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:992
+#, python-brace-format
+msgid "{len_type} values are required, but {len_value} was given."
+msgid_plural "{len_type} values are required, but {len_value} were given."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: .\venv\Lib\site-packages\django\contrib\messages\apps.py:16
+msgid "Messages"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\contrib\sitemaps\apps.py:8
+msgid "Site Maps"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\contrib\staticfiles\apps.py:9
+msgid "Static Files"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\contrib\syndication\apps.py:7
+msgid "Syndication"
+msgstr ""
+
+#. Translators: String used to replace omitted page numbers in elided page
+#. range generated by paginators, e.g. [1, 2, '…', 5, 6, 7, '…', 9, 10].
+#: .\venv\Lib\site-packages\django\core\paginator.py:30
+msgid "…"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:32
+msgid "That page number is not an integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:33
+msgid "That page number is less than 1"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:34
+msgid "That page contains no results"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:22
+msgid "Enter a valid value."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:70
+msgid "Enter a valid domain name."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:155
+#: .\venv\Lib\site-packages\django\forms\fields.py:768
+msgid "Enter a valid URL."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:216
+msgid "Enter a valid integer."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:227
+msgid "Enter a valid email address."
+msgstr ""
+
+#. Translators: "letters" means latin letters: a-z and A-Z.
+#: .\venv\Lib\site-packages\django\core\validators.py:310
+msgid ""
+"Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:318
+msgid ""
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
+"hyphens."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:330
+#: .\venv\Lib\site-packages\django\core\validators.py:339
+#: .\venv\Lib\site-packages\django\core\validators.py:353
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2215
+#, python-format
+msgid "Enter a valid %(protocol)s address."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:332
+msgid "IPv4"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:341
+#: .\venv\Lib\site-packages\django\utils\ipv6.py:43
+msgid "IPv6"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:355
+msgid "IPv4 or IPv6"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:396
+msgid "Enter only digits separated by commas."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:402
+#, python-format
+msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:437
+#, python-format
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:446
+#, python-format
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:455
+#, python-format
+msgid "Ensure this value is a multiple of step size %(limit_value)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:462
+#, python-format
+msgid ""
+"Ensure this value is a multiple of step size %(limit_value)s, starting from "
+"%(offset)s, e.g. %(offset)s, %(valid_value1)s, %(valid_value2)s, and so on."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:494
+#, python-format
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:512
+#, python-format
+msgid ""
+"Ensure this value has at most %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at most %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:535
+#: .\venv\Lib\site-packages\django\forms\fields.py:359
+#: .\venv\Lib\site-packages\django\forms\fields.py:398
+msgid "Enter a number."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:537
+#, python-format
+msgid "Ensure that there are no more than %(max)s digit in total."
+msgid_plural "Ensure that there are no more than %(max)s digits in total."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:542
+#, python-format
+msgid "Ensure that there are no more than %(max)s decimal place."
+msgid_plural "Ensure that there are no more than %(max)s decimal places."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:547
+#, python-format
+msgid ""
+"Ensure that there are no more than %(max)s digit before the decimal point."
+msgid_plural ""
+"Ensure that there are no more than %(max)s digits before the decimal point."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:618
+#, python-format
+msgid ""
+"File extension “%(extension)s” is not allowed. Allowed extensions are: "
+"%(allowed_extensions)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:680
+msgid "Null characters are not allowed."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\base.py:1572
+#: .\venv\Lib\site-packages\django\forms\models.py:908
+msgid "and"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\base.py:1574
+#, python-format
+msgid "%(model_name)s with this %(field_labels)s already exists."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\constraints.py:22
+#, python-format
+msgid "Constraint “%(name)s” is violated."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:134
+#, python-format
+msgid "Value %(value)r is not a valid choice."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:135
+msgid "This field cannot be null."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:136
+msgid "This field cannot be blank."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:137
+#, python-format
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr ""
+
+#. Translators: The 'lookup_type' is one of 'date', 'year' or
+#. 'month'. Eg: "Title must be unique for pub_date year"
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:141
+#, python-format
+msgid ""
+"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:180
+#, python-format
+msgid "Field of type: %(field_type)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1156
+#, python-format
+msgid "“%(value)s” value must be either True or False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1157
+#, python-format
+msgid "“%(value)s” value must be either True, False, or None."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1159
+msgid "Boolean (Either True or False)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1209
+#, python-format
+msgid "String (up to %(max_length)s)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1211
+msgid "String (unlimited)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1320
+msgid "Comma-separated integers"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1421
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid date format. It must be in YYYY-MM-DD "
+"format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1425
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1560
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD) but it is an invalid "
+"date."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1429
+msgid "Date (without time)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1556
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD "
+"HH:MM[:ss[.uuuuuu]][TZ] format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1564
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ]) but it is an invalid date/time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1569
+msgid "Date (with time)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1696
+#, python-format
+msgid "“%(value)s” value must be a decimal number."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1698
+msgid "Decimal number"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1859
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in [DD] "
+"[[HH:]MM:]ss[.uuuuuu] format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1863
+#, fuzzy
+#| msgid "Translations"
+msgid "Duration"
+msgstr "Переводы"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1915
+msgid "Email address"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1940
+msgid "File path"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2018
+#, python-format
+msgid "“%(value)s” value must be a float."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2020
+msgid "Floating point number"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2060
+#, python-format
+msgid "“%(value)s” value must be an integer."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2062
+msgid "Integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2158
+msgid "Big (8 byte) integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2175
+msgid "Small integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2183
+msgid "IPv4 address"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2214
+msgid "IP address"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2305
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2306
+#, python-format
+msgid "“%(value)s” value must be either None, True or False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2308
+msgid "Boolean (Either True, False or None)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2359
+msgid "Positive big integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2374
+msgid "Positive integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2389
+msgid "Positive small integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2405
+#, python-format
+msgid "Slug (up to %(max_length)s)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2441
+msgid "Text"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2521
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
+"format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2525
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
+"invalid time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2529
+msgid "Time"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2637
+msgid "URL"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2661
+msgid "Raw binary data"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2726
+#, python-format
+msgid "“%(value)s” is not a valid UUID."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2728
+msgid "Universally unique identifier"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\files.py:244
+msgid "File"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\files.py:420
+msgid "Image"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\json.py:24
+msgid "A JSON object"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\json.py:26
+msgid "Value must be valid JSON."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:932
+#, python-format
+msgid "%(model)s instance with %(field)s %(value)r does not exist."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:934
+msgid "Foreign Key (type determined by related field)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1228
+msgid "One-to-one relationship"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1285
+#, python-format
+msgid "%(from)s-%(to)s relationship"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1287
+#, python-format
+msgid "%(from)s-%(to)s relationships"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1335
+msgid "Many-to-many relationship"
+msgstr ""
+
+#. Translators: If found as last label character, these punctuation
+#. characters will prevent the default label_suffix to be appended to the label
+#: .\venv\Lib\site-packages\django\forms\boundfield.py:185
+msgid ":?.!"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:95
+msgid "This field is required."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:308
+msgid "Enter a whole number."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:479
+#: .\venv\Lib\site-packages\django\forms\fields.py:1260
+msgid "Enter a valid date."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:502
+#: .\venv\Lib\site-packages\django\forms\fields.py:1261
+msgid "Enter a valid time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:529
+msgid "Enter a valid date/time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:563
+msgid "Enter a valid duration."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:564
+#, python-brace-format
+msgid "The number of days must be between {min_days} and {max_days}."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:633
+msgid "No file was submitted. Check the encoding type on the form."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:634
+msgid "No file was submitted."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:635
+msgid "The submitted file is empty."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:637
+#, python-format
+msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid_plural ""
+"Ensure this filename has at most %(max)d characters (it has %(length)d)."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:642
+msgid "Please either submit a file or check the clear checkbox, not both."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:710
+msgid ""
+"Upload a valid image. The file you uploaded was either not an image or a "
+"corrupted image."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:882
+#: .\venv\Lib\site-packages\django\forms\fields.py:968
+#: .\venv\Lib\site-packages\django\forms\models.py:1592
+#, python-format
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:970
+#: .\venv\Lib\site-packages\django\forms\fields.py:1089
+#: .\venv\Lib\site-packages\django\forms\models.py:1590
+msgid "Enter a list of values."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1090
+msgid "Enter a complete value."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1332
+msgid "Enter a valid UUID."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1362
+msgid "Enter a valid JSON."
+msgstr ""
+
+#. Translators: This is the default suffix added to form field labels
+#: .\venv\Lib\site-packages\django\forms\forms.py:94
+msgid ":"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\forms.py:230
+#, python-format
+msgid "(Hidden field %(name)s) %(error)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:61
+#, python-format
+msgid ""
+"ManagementForm data is missing or has been tampered with. Missing fields: "
+"%(field_names)s. You may need to file a bug report if the issue persists."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:65
+#, python-format
+msgid "Please submit at most %(num)d form."
+msgid_plural "Please submit at most %(num)d forms."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:70
+#, python-format
+msgid "Please submit at least %(num)d form."
+msgid_plural "Please submit at least %(num)d forms."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:484
+#: .\venv\Lib\site-packages\django\forms\formsets.py:491
+msgid "Order"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:499
+msgid "Delete"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:901
+#, python-format
+msgid "Please correct the duplicate data for %(field)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:906
+#, python-format
+msgid "Please correct the duplicate data for %(field)s, which must be unique."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:913
+#, python-format
+msgid ""
+"Please correct the duplicate data for %(field_name)s which must be unique "
+"for the %(lookup)s in %(date_field)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:922
+msgid "Please correct the duplicate values below."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1359
+msgid "The inline value did not match the parent instance."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1450
+msgid "Select a valid choice. That choice is not one of the available choices."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1594
+#, python-format
+msgid "“%(pk)s” is not a valid value."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\utils.py:227
+#, python-format
+msgid ""
+"%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it "
+"may be ambiguous or it may not exist."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:461
+msgid "Clear"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:462
+msgid "Currently"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:463
+msgid "Change"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:800
+msgid "Unknown"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:801
+msgid "Yes"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:802
+msgid "No"
+msgstr ""
+
+#. Translators: Please do not add spaces around commas.
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:873
+msgid "yes,no,maybe"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:903
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:920
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:922
+#, python-format
+msgid "%s KB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:924
+#, python-format
+msgid "%s MB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:926
+#, python-format
+msgid "%s GB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:928
+#, python-format
+msgid "%s TB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:930
+#, python-format
+msgid "%s PB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:74
+msgid "p.m."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:75
+msgid "a.m."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:80
+msgid "PM"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:81
+msgid "AM"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:153
+msgid "midnight"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:155
+msgid "noon"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:7
+msgid "Monday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:8
+msgid "Tuesday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:9
+msgid "Wednesday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:10
+msgid "Thursday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:11
+msgid "Friday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:12
+msgid "Saturday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:13
+msgid "Sunday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:16
+msgid "Mon"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:17
+msgid "Tue"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:18
+msgid "Wed"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:19
+msgid "Thu"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:20
+msgid "Fri"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:21
+msgid "Sat"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:22
+msgid "Sun"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:25
+msgid "January"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:26
+msgid "February"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:27
+msgid "March"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:28
+msgid "April"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:29
+msgid "May"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:30
+msgid "June"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:31
+msgid "July"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:32
+msgid "August"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:33
+msgid "September"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:34
+msgid "October"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:35
+msgid "November"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:36
+msgid "December"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:39
+msgid "jan"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:40
+msgid "feb"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:41
+msgid "mar"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:42
+msgid "apr"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:43
+msgid "may"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:44
+msgid "jun"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:45
+msgid "jul"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:46
+msgid "aug"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:47
+msgid "sep"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:48
+msgid "oct"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:49
+msgid "nov"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:50
+msgid "dec"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:53
+msgctxt "abbrev. month"
+msgid "Jan."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:54
+msgctxt "abbrev. month"
+msgid "Feb."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:55
+msgctxt "abbrev. month"
+msgid "March"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:56
+msgctxt "abbrev. month"
+msgid "April"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:57
+msgctxt "abbrev. month"
+msgid "May"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:58
+msgctxt "abbrev. month"
+msgid "June"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:59
+msgctxt "abbrev. month"
+msgid "July"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:60
+msgctxt "abbrev. month"
+msgid "Aug."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:61
+msgctxt "abbrev. month"
+msgid "Sept."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:62
+msgctxt "abbrev. month"
+msgid "Oct."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:63
+msgctxt "abbrev. month"
+msgid "Nov."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:64
+msgctxt "abbrev. month"
+msgid "Dec."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:67
+msgctxt "alt. month"
+msgid "January"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:68
+msgctxt "alt. month"
+msgid "February"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:69
+msgctxt "alt. month"
+msgid "March"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:70
+msgctxt "alt. month"
+msgid "April"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:71
+msgctxt "alt. month"
+msgid "May"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:72
+msgctxt "alt. month"
+msgid "June"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:73
+msgctxt "alt. month"
+msgid "July"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:74
+msgctxt "alt. month"
+msgid "August"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:75
+msgctxt "alt. month"
+msgid "September"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:76
+msgctxt "alt. month"
+msgid "October"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:77
+msgctxt "alt. month"
+msgid "November"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:78
+msgctxt "alt. month"
+msgid "December"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\ipv6.py:20
+msgid "This is not a valid IPv6 address."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\text.py:75
+#, python-format
+msgctxt "String to return when truncating text"
+msgid "%(truncated_text)s…"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\text.py:286
+msgid "or"
+msgstr ""
+
+#. Translators: This string is used as a separator between list elements
+#: .\venv\Lib\site-packages\django\utils\text.py:305
+#: .\venv\Lib\site-packages\django\utils\timesince.py:135
+msgid ", "
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:8
+#, python-format
+msgid "%(num)d year"
+msgid_plural "%(num)d years"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:9
+#, python-format
+msgid "%(num)d month"
+msgid_plural "%(num)d months"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:10
+#, python-format
+msgid "%(num)d week"
+msgid_plural "%(num)d weeks"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:11
+#, python-format
+msgid "%(num)d day"
+msgid_plural "%(num)d days"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:12
+#, python-format
+msgid "%(num)d hour"
+msgid_plural "%(num)d hours"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:13
+#, python-format
+msgid "%(num)d minute"
+msgid_plural "%(num)d minutes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:29
+msgid "Forbidden"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:30
+msgid "CSRF verification failed. Request aborted."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:34
+msgid ""
+"You are seeing this message because this HTTPS site requires a “Referer "
+"header” to be sent by your web browser, but none was sent. This header is "
+"required for security reasons, to ensure that your browser is not being "
+"hijacked by third parties."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:40
+msgid ""
+"If you have configured your browser to disable “Referer” headers, please re-"
+"enable them, at least for this site, or for HTTPS connections, or for “same-"
+"origin” requests."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:45
+msgid ""
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
+"including the “Referrer-Policy: no-referrer” header, please remove them. The "
+"CSRF protection requires the “Referer” header to do strict referer checking. "
+"If you’re concerned about privacy, use alternatives like <a "
+"rel=\"noreferrer\" …> for links to third-party sites."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:54
+msgid ""
+"You are seeing this message because this site requires a CSRF cookie when "
+"submitting forms. This cookie is required for security reasons, to ensure "
+"that your browser is not being hijacked by third parties."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:60
+msgid ""
+"If you have configured your browser to disable cookies, please re-enable "
+"them, at least for this site, or for “same-origin” requests."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:66
+msgid "More information is available with DEBUG=True."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:44
+msgid "No year specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:64
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:115
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:214
+msgid "Date out of range"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:94
+msgid "No month specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:147
+msgid "No day specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:194
+msgid "No week specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:349
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:380
+#, python-format
+msgid "No %(verbose_name_plural)s available"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:652
+#, python-format
+msgid ""
+"Future %(verbose_name_plural)s not available because "
+"%(class_name)s.allow_future is False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:692
+#, python-format
+msgid "Invalid date string “%(datestr)s” given format “%(format)s”"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\detail.py:56
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:70
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:77
+#, python-format
+msgid "Invalid page (%(page_number)s): %(message)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:169
+#, python-format
+msgid "Empty list and “%(class_name)s.allow_empty” is False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\static.py:49
+msgid "Directory indexes are not allowed here."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\static.py:51
+#, python-format
+msgid "“%(path)s” does not exist"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\static.py:68
+#: .\venv\Lib\site-packages\django\views\templates\directory_index.html:8
+#: .\venv\Lib\site-packages\django\views\templates\directory_index.html:11
+#, python-format
+msgid "Index of %(directory)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:7
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:204
+msgid "The install worked successfully! Congratulations!"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:206
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:208
+#, python-format
+msgid ""
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" "
+"rel=\"noopener\">DEBUG=True</a> is in your settings file and you have not "
+"configured any URLs."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:217
+msgid "Django Documentation"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:218
+msgid "Topics, references, &amp; how-to’s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:226
+msgid "Tutorial: A Polling App"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:227
+msgid "Get started with Django"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:235
+msgid "Django Community"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:236
+msgid "Connect, get help, or contribute"
+msgstr ""
+
+#: .\venv\Lib\site-packages\kombu\transport\qpid.py:1311
+#, python-format
+msgid "Attempting to connect to qpid with SASL mechanism %s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\kombu\transport\qpid.py:1316
+#, python-format
+msgid "Connected to qpid with SASL mechanism %s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\kombu\transport\qpid.py:1334
+#, python-format
+msgid "Unable to connect to qpid with SASL mechanism %s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\modeltranslation\widgets.py:32
+msgid "None"
+msgstr ""

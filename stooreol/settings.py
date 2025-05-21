@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'cart',
+    'chat',
     'users',
     'orders',
     'payment',
@@ -27,9 +28,6 @@ INSTALLED_APPS = [
     'auction',
     'favorites',
     'rosetta',
-    'chatbot',
-    'rest_framework',
-    'rest_framework_simplejwt.token_blacklist',
     'corsheaders',
 ]
 REST_FRAMEWORK = {
@@ -105,7 +103,7 @@ DATABASES = {
     }
 }
 
-
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 STRIPE_PUBLISHABLE_KEY = env('STRIPE_PUBLISHABLE_KEY')
 STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY')
 STRIPE_API_VERSION = env('STRIPE_API_VERSION')

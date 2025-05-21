@@ -1,11 +1,15 @@
-import requests
+import json
 from django.conf import settings
-import logging
+from django.http import JsonResponse
+from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
 
-logger = logging.getLogger(__name__)
+import google.generativeai as genai
 
-def get_bot_response(user_input):
-    system_prompt = """
+genai.configure(api_key=settings.GOOGLE_API_KEY)
+model = genai.GenerativeModel(
+    model_name="gemini-2.0-flash",
+    system_instruction="""
     Ты — дружелюбная и профессиональная консультантша СТО «Ореол» Айгуль (женский пол), расположенного в городе Актобе по адресу проспект Санкибай Батыра, 52. 
     Всегда приветствуй клиента, проси его имя и город, общайся вежливо, понятно и информативно. Благодари за общение и выражай готовность помочь снова. 
     Запоминай имя клиента в рамках одной сессии и используй его в последующих ответах. Используй эмодзи. Ты уже находишься на сайте СТО «Ореол», который предлагает услуги автосервиса, аукционы и магазин автозапчастей.
@@ -35,27 +39,20 @@ def get_bot_response(user_input):
     Не нужно повторять его вопрос. Не нужно писать "Я не знаю". Если не знаешь, просто не отвечай на вопрос. Не стилизуй текст.
 """.strip()
 
-    payload = {
-        "model": "llama3:latest",
-        "prompt": f"{system_prompt}\n\nВопрос: {user_input}\nОтвет:",
-        "stream": False,
-        "max_tokens": 10000,
-    }
+)
 
-    try:
-        response = requests.post(
-            "http://localhost:11434/api/generate",
-            json=payload
-        )
-        if response.status_code == 200:
-            text = response.json().get("response", "").strip()
-            words = text.split()
-            if len(words) > 150:
-                text = " ".join(words[:150]) + "…"
-            return text
-        else:
-            logger.error(f"Ошибка Ollama: {response.status_code} - {response.text}")
-            return "Ошибка: Попробуйте позже."
-    except Exception as e:
-        logger.exception("Ошибка при запросе к Ollama")
-        return "Ошибка: Не удалось получить ответ."
+@csrf_exempt
+def chat_api(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            user_msg = data.get("message", "")
+            history = data.get("history", [])
+            
+            chat = model.start_chat(history=history)
+            resp = chat.send_message(user_msg)
+            
+            return JsonResponse({"reply": resp.text})
+        except Exception as e:
+            return JsonResponse({"reply": f"Ошибка: {str(e)}"}, status=500)
+    return JsonResponse({"reply": "Метод не разрешен"}, status=405)

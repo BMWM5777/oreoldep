@@ -160,11 +160,11 @@ CART_SESSION_ID = 'cart'
 AUTH_USER_MODEL = 'users.User'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.mail.ru'
-EMAIL_PORT = 587
+EMAIL_HOST = '123'
+EMAIL_PORT = 123
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'dilshat.musin.2003@mail.ru'
-EMAIL_HOST_PASSWORD = 'DTsdp8Mt7niqmxr8sxfA'
+EMAIL_HOST_USER = '123'
+EMAIL_HOST_PASSWORD = '123'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
